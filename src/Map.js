@@ -1,5 +1,4 @@
-
-import React, { Component } from "react"
+import React from "react"
 import {
     ComposableMap,
     ZoomableGroup,
@@ -35,10 +34,12 @@ function Map(props) {
                                 key={i}
                                 geography={geography}
                                 projection={projection}
-                                style={{
+                                onClick={() => props.handleStateSelect(geography.properties.NAME)}
+                                style={
+                                    props.elections[geography.properties.NAME] != null ? {
                                     default: {
-                                        fill: props.elections[geography.properties.NAME] != null ? "#ECEFF1" : "#000000",
-                                        stroke: props.elections[geography.properties.NAME] != null ? "#607D8B" : "#FF",
+                                        fill: "#ECEFF1",
+                                        stroke: "#607D8B",
                                         strokeWidth: 0.75,
                                         outline: "none",
                                     },
@@ -50,11 +51,20 @@ function Map(props) {
                                     },
                                     pressed: {
                                         fill: "#FF5722",
-                                        stroke: "#607D8B",
+                                        stroke: props.elections[geography.properties.NAME] != null ? "#607D8B" : "#FF",
                                         strokeWidth: 0.75,
                                         outline: "none",
                                     },
-                                }}
+                                } : 
+                                    {
+                                        default: {
+                                            fill: "#000",
+                                            stroke: "#000",
+                                            strokeWidth: 0.75,
+                                            outline: "none",
+                                        }
+                                    }
+                                }
                             />
                         ))}
                     </Geographies>

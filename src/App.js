@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Map from './Map.js';
 import geographyObject from "./map.json"
 import elections from "./elections.json"
+import ElectionHeader from "./ElectionHeader.js"
 import {feature} from "topojson-client"
 
 class App extends Component {
@@ -12,7 +12,11 @@ class App extends Component {
     this.state = {
       geographyPaths: [],
       elections: {},
+      selectedState: {},
+      selectedStateName: "Massachusetts",
     };
+
+    this.handleStateSelect = this.handleStateSelect.bind(this);
   }
 
   componentDidMount() {
@@ -20,16 +24,28 @@ class App extends Component {
       geographyObject,
       geographyObject.objects[Object.keys(geographyObject.objects)[0]]
     ).features;
-    this.setState({ geographyPaths: geographyPaths })
-    this.setState({ elections: elections })
+    this.setState({ geographyPaths: geographyPaths });
+    this.setState({ elections: elections });
+    this.handleStateSelect(this.state.selectedStateName);
   }
 
   render() {
     return (
-      <div className="App">
-        <Map geography={this.state.geographyPaths} elections={this.state.elections}/>
+      <div className="App container">
+        <ElectionHeader 
+          selectedState={this.state.selectedState}
+          selectedStateName={this.state.selectedStateName}
+          />
+        <Map geography={this.state.geographyPaths} 
+          elections={this.state.elections} 
+          handleStateSelect={this.handleStateSelect}/>
       </div>
     );
+  }
+
+  handleStateSelect(stateName){
+    this.setState({selectedStateName : stateName});
+    this.setState({selectedState : elections[stateName]});
   }
 }
 
