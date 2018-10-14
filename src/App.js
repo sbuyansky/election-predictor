@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Map from './Map.js';
 import geographyObject from "./map.json"
+import elections from "./elections.json"
 import {feature} from "topojson-client"
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
     super()
     this.state = {
       geographyPaths: [],
+      elections: {},
     };
   }
 
@@ -18,14 +20,14 @@ class App extends Component {
       geographyObject,
       geographyObject.objects[Object.keys(geographyObject.objects)[0]]
     ).features;
-    console.log(geographyPaths);
-    this.setState({ geographyPaths })
+    this.setState({ geographyPaths: geographyPaths })
+    this.setState({ elections: elections })
   }
 
   render() {
     return (
       <div className="App">
-        <Map geography={this.state.geographyPaths}/>
+        <Map geography={this.state.geographyPaths} elections={this.state.elections}/>
       </div>
     );
   }

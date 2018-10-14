@@ -37,8 +37,8 @@ function Map(props) {
                                 projection={projection}
                                 style={{
                                     default: {
-                                        fill: "#ECEFF1",
-                                        stroke: "#607D8B",
+                                        fill: props.elections[geography.properties.NAME] != null ? "#ECEFF1" : "#000000",
+                                        stroke: props.elections[geography.properties.NAME] != null ? "#607D8B" : "#FF",
                                         strokeWidth: 0.75,
                                         outline: "none",
                                     },
