@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import re
 import json
+import requests
 
 def nominee_string(a):
     return a and "Nominee" in a.string
@@ -57,6 +58,7 @@ for table in soup.findAll("table", class_="infobox"):
     # Get candidates
     candidates=[]
     parties=[]
+    sources = []
 
     for th in table.findAll("th", string=nominee_string):
         for sibling in th.next_siblings:
@@ -75,6 +77,10 @@ for table in soup.findAll("table", class_="infobox"):
                 if(sibling.a is not None):
                     parties.append(sibling.a.string.strip())
 
+    for img in table.findAll("img"):
+        print(img)
+        sources.append("http:%s" % img["src"])
+
     if(stateName == "Mississippi" and isSpecial):
         candidates.append("Mike Espy")
         candidates.append("Cindy Hyde-Smith")
@@ -88,10 +94,19 @@ for table in soup.findAll("table", class_="infobox"):
 
     election["candidates"] = []
     
+    regex = re.compile('[^a-zA-Z]')
+
     for i in range(0, len(candidates)):
         candidate = {}
         candidate["name"] = candidates[i]
         candidate["party"] = parties[i]
+        for src in sources:
+            if candidate["name"].split(" ")[1] in src:
+                request = requests.get(src)
+                if request.status_code == 200:
+                    with open("E:\Source\prediction-app\public\img\candidates\%s.jpg" % regex.sub("", candidate["name"]), 'wb') as f:
+                        f.write(request.content)
+                        f.close()
         elections[stateName]["candidates"].append(candidate)
 
 serialized = json.dumps(elections, sort_keys=True, indent=3)

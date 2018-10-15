@@ -34,7 +34,7 @@ function Map(props) {
                                 key={i}
                                 geography={geography}
                                 projection={projection}
-                                onClick={() => props.handleStateSelect(geography.properties.NAME)}
+                                onClick={props.elections[geography.properties.NAME] != null ? () => props.handleStateSelect(geography.properties.NAME) : null}
                                 style={
                                     props.elections[geography.properties.NAME] != null ? {
                                     default: {
