@@ -17,22 +17,22 @@
   }
 
   .card-Democratic {
-    box-shadow: 3px 3px 3px #415695;
     border: 1px solid #415695 !important;
+    border-top: 10px solid #415695 !important;
   }
   .card-Republican {
-    box-shadow: 3px 3px 3px #bd3d3c;
     border: 1px solid #bd3d3c !important;
+    border-top: 10px solid #bd3d3c !important;
   }
   .card-Independent {
-    box-shadow: 3px 3px 3px #666666;
     border: 1px solid #666666 !important;
+    border-top: 10px solid #666666 !important;
   }
   .card-Libertarian {
-    box-shadow: 3px 3px 3px #C8CF00;
     border: 1px solid #C8CF00 !important;
+    border-top: 10px solid #C8CF00 !important;
   }
   .card-Green {
-    box-shadow: 3px 3px 3px #17C70E;
     border: 1px solid #17C70E !important;
+    border-top: 10px solid #17C70E !important;
   }

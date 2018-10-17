@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 import Map from './Map.js';
 import geographyObject from "./map.json"
-import elections from "./elections.json"
+import elections from "./elections_senatorial.json"
 import ElectionHeader from "./ElectionHeader.js"
+import ElectionTable from "./ElectionTable.js"
 import {feature} from "topojson-client"
+
+import './App.css';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -12,9 +15,7 @@ class App extends Component {
     this.state = {
       geographyPaths: [],
       elections: {},
-      selectedState: {},
       selectedStateName: "Massachusetts",
-      predictions : {},
     };
 
     this.handleStateSelect = this.handleStateSelect.bind(this);
@@ -29,51 +30,46 @@ class App extends Component {
     this.setState({ geographyPaths: geographyPaths });
     this.setState({ elections: elections });
     this.handleStateSelect(this.state.selectedStateName);
-
-    const predictions = {};
-
-    Object.keys(elections).forEach(element => {
-      predictions[element] = {};
-    });
-    this.setState({predictions : predictions});
+    console.log(Object.keys(elections).length);
   }
 
   render() {
     return (
       <div className="App container">
         <ElectionHeader 
-          selectedState={this.state.selectedState}
+          selectedState={this.state.elections[this.state.selectedStateName]}
           selectedStateName={this.state.selectedStateName}
           handleWinnerSelect={this.handleWinnerSelect}
           />
         <Map geography={this.state.geographyPaths} 
           elections={this.state.elections} 
           handleStateSelect={this.handleStateSelect}/>
+        <ElectionTable
+          elections={this.state.elections}
+          handleWinnerSelect={this.handleWinnerSelect}
+          selectedStateName={this.state.selectedStateName}
+        />
       </div>
     );
   }
 
   handleStateSelect(stateName){
     this.setState({selectedStateName : stateName});
-    this.setState({selectedState : elections[stateName]});
   }
 
-  handleWinnerSelect(candidateName){
-    console.log(candidateName);
-    this.setState((prevState) => {
-      console.log(prevState);
-      let newElection = prevState.elections[prevState.selectedStateName];
-      newElection.candidates.forEach(candidate => {
-        if(candidate.name === candidateName){
-          candidate.isProjectedWinner = true;
+  handleWinnerSelect(candidate, stateName){
+    if(!candidate || !candidate.name || !candidate.party){
+      return;
+    }
+    this.setState((prevState) => ({
+      elections: {
+        ...prevState.elections,
+        [stateName]: {
+          ...prevState.elections[stateName],
+          projectedWinner: candidate,
         }
-        else{
-          candidate.isProjectedWinner = false;
-        }
-      });
-      prevState.elections[prevState.selectedState] = newElection;
-      return prevState;
-    });
+      }
+    }))
   }
 }
 

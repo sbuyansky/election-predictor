@@ -1,0 +1,446 @@
+{
+    "Alabama": {
+        "candidates": [
+            {
+                "name": "Kay Ivey",
+                "party": "Republican"
+            },
+            {
+                "name": "Walter Maddox",
+                "party": "Democratic"
+            }
+        ]
+    },
+    "Alaska": {
+        "candidates": [
+            {
+                "name": "Mike Dunleavy",
+                "party": "Republican"
+            },
+            {
+                "name": "Mark Begich",
+                "party": "Democratic"
+            },
+            {
+                "name": "Bill Walker",
+                "party": "Democratic"
+            }
+        ]
+    },
+    "Arizona": {
+        "candidates": [
+            {
+                "name": "David Garcia",
+                "party": "Democratic"
+            },
+            {
+                "name": "Doug Ducey",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Arkansas": {
+        "candidates": [
+            {
+                "name": "Jared Henderson",
+                "party": "Democratic"
+            },
+            {
+                "name": "Asa Hutchinson",
+                "party": "Republican"
+            }
+        ]
+    },
+    "California": {
+        "candidates": [
+            {
+                "name": "Gavin Newsom",
+                "party": "Democratic"
+            },
+            {
+                "name": "John Cox",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Connecticut": {
+        "candidates": [
+            {
+                "name": "Ned Lamont",
+                "party": "Democratic"
+            },
+            {
+                "name": "Bob Stefanowski",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Colorado": {
+        "candidates": [
+            {
+                "name": "Jared Polis",
+                "party": "Democratic"
+            },
+            {
+                "name": "Walker Stapleton",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Florida": {
+        "candidates": [
+            {
+                "name": "Andrew Gillum",
+                "party": "Democratic"
+            },
+            {
+                "name": "Ron DeSantis",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Georgia": {
+        "candidates": [
+            {
+                "name": "Stacey Abrams",
+                "party": "Democratic"
+            },
+            {
+                "name": "Brian Kemp",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Hawaii": {
+        "candidates": [
+            {
+                "name": "David Ige",
+                "party": "Democratic"
+            },
+            {
+                "name": "Andria Tupola",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Idaho": {
+        "candidates": [
+            {
+                "name": "Paulette Jordan",
+                "party": "Democratic"
+            },
+            {
+                "name": "Brad Little",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Illinois": {
+        "candidates": [
+            {
+                "name": "J.B. Pritzker",
+                "party": "Democratic"
+            },
+            {
+                "name": "Bruce Rauner",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Iowa": {
+        "candidates": [
+            {
+                "name": "Fred Hubbell",
+                "party": "Democratic"
+            },
+            {
+                "name": "Kim Reynolds",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Kansas": {
+        "candidates": [
+            {
+                "name": "Laura Kelly",
+                "party": "Democratic"
+            },
+            {
+                "name": "Kris Kobach",
+                "party": "Republican"
+            },
+            {
+                "name": "Greg Orman",
+                "party": "Independent"
+            }
+        ]
+    },
+    "Maine": {
+        "candidates": [
+            {
+                "name": "Janet Mills",
+                "party": "Democratic"
+            },
+            {
+                "name": "Shawn Moody",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Maryland": {
+        "candidates": [
+            {
+                "name": "Ben Jealous",
+                "party": "Democratic"
+            },
+            {
+                "name": "Larry Hogan",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Massachusetts": {
+        "candidates": [
+            {
+                "name": "Jay Gonzalez",
+                "party": "Democratic"
+            },
+            {
+                "name": "Charlie Baker",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Michigan": {
+        "candidates": [
+            {
+                "name": "Gretchen Whitmer",
+                "party": "Democratic"
+            },
+            {
+                "name": "Bill Schuette",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Minnesota": {
+        "candidates": [
+            {
+                "name": "Tim Walz",
+                "party": "Democratic"
+            },
+            {
+                "name": "Jeff Johnson",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Nebraska": {
+        "candidates": [
+            {
+                "name": "Pete Ricketts",
+                "party": "Republican"
+            },
+            {
+                "name": "Bob Krist",
+                "party": "Democratic"
+            }
+        ]
+    },
+    "Nevada": {
+        "candidates": [
+            {
+                "name": "Adam Laxalt",
+                "party": "Republican"
+            },
+            {
+                "name": "Steve Sisolak",
+                "party": "Democratic"
+            },
+            {
+                "name": "Jared Lord",
+                "party": "Libertarian"
+            }
+        ]
+    },
+    "New Hampshire": {
+        "candidates": [
+            {
+                "name": "Molly Kelly",
+                "party": "Democratic"
+            },
+            {
+                "name": "Chris Sununu",
+                "party": "Republican"
+            }
+        ]
+    },
+    "New Mexico": {
+        "candidates": [
+            {
+                "name": "Michelle Lujan Grisham",
+                "party": "Democratic"
+            },
+            {
+                "name": "Steve Pearce",
+                "party": "Republican"
+            }
+        ]
+    },
+    "New York": {
+        "candidates": [
+            {
+                "name": "Andrew Cuomo",
+                "party": "Democratic"
+            },
+            {
+                "name": "Marc Molinaro",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Ohio": {
+        "candidates": [
+            {
+                "name": "Richard Cordray",
+                "party": "Democratic"
+            },
+            {
+                "name": "Mike DeWine",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Oklahoma": {
+        "candidates": [
+            {
+                "name": "Drew Edmondson",
+                "party": "Democratic"
+            },
+            {
+                "name": "Kevin Stitt",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Oregon": {
+        "candidates": [
+            {
+                "name": "Kate Brown",
+                "party": "Democratic"
+            },
+            {
+                "name": "Knute Buehler",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Pennsylvania": {
+        "candidates": [
+            {
+                "name": "Tom Wolf",
+                "party": "Democratic"
+            },
+            {
+                "name": "Scott Wagner",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Rhode Island": {
+        "candidates": [
+            {
+                "name": "Gina Raimondo",
+                "party": "Democratic"
+            },
+            {
+                "name": "Allan Fung",
+                "party": "Republican"
+            }
+        ]
+    },
+    "South Carolina": {
+        "candidates": [
+            {
+                "name": "James Smith",
+                "party": "Democratic"
+            },
+            {
+                "name": "Henry McMaster",
+                "party": "Republican"
+            }
+        ]
+    },
+    "South Dakota": {
+        "candidates": [
+            {
+                "name": "Billie Sutton",
+                "party": "Democratic"
+            },
+            {
+                "name": "Kristi Noem",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Tennessee": {
+        "candidates": [
+            {
+                "name": "Karl Dean",
+                "party": "Democratic"
+            },
+            {
+                "name": "Bill Lee",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Texas": {
+        "candidates": [
+            {
+                "name": "Greg Abbott",
+                "party": "Republican"
+            },
+            {
+                "name": "Lupe Valdez",
+                "party": "Democratic"
+            }
+        ]
+    },
+    "Vermont": {
+        "candidates": [
+            {
+                "name": "Christine Hallquist",
+                "party": "Democratic"
+            },
+            {
+                "name": "Phil Scott",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Wisconsin": {
+        "candidates": [
+            {
+                "name": "Tony Evers",
+                "party": "Democratic"
+            },
+            {
+                "name": "Scott Walker",
+                "party": "Republican"
+            }
+        ]
+    },
+    "Wyoming": {
+        "candidates": [
+            {
+                "name": "Mark Gordon",
+                "party": "Republican"
+            },
+            {
+                "name": "Mary Throne",
+                "party": "Democratic"
+            }
+        ]
+    }
+}

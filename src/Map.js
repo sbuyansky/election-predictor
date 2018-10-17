@@ -1,10 +1,11 @@
-import React from "react"
+import React, {Component} from "react"
 import {
     ComposableMap,
     ZoomableGroup,
     Geographies,
     Geography,
 } from "react-simple-maps"
+import Helpers from "./Helpers.js"
 
 const wrapperStyles = {
     width: "100%",
@@ -12,8 +13,19 @@ const wrapperStyles = {
     margin: "0 auto",
 }
 
-function Map(props) {
-    return (
+class Map extends Component {
+    constructor(props) {
+        super(props)    
+        this.props = props;
+        
+        this.GetStyle = this.GetStyle.bind(this);
+    }
+
+    render(){
+        const props = this.props;
+        const GetStyle = this.GetStyle;
+
+        return (
         <div style={wrapperStyles}>
             <ComposableMap
                 projection="albersUsa"
@@ -28,50 +40,77 @@ function Map(props) {
                 }}
             >
                 <ZoomableGroup center={[0, 20]} disablePanning>
-                    <Geographies geography={props.geography}>
+                    <Geographies geography={props.geography} disableOptimization>
                         {(geographies, projection) => geographies.map((geography, i) => (
                             <Geography
                                 key={i}
                                 geography={geography}
+                                cacheId={`geography-${i}`}
                                 projection={projection}
                                 onClick={props.elections[geography.properties.NAME] != null ? () => props.handleStateSelect(geography.properties.NAME) : null}
-                                style={
-                                    props.elections[geography.properties.NAME] != null ? {
-                                    default: {
-                                        fill: "#ECEFF1",
-                                        stroke: "#607D8B",
-                                        strokeWidth: 0.75,
-                                        outline: "none",
-                                    },
-                                    hover: {
-                                        fill: "#607D8B",
-                                        stroke: "#607D8B",
-                                        strokeWidth: 0.75,
-                                        outline: "none",
-                                    },
-                                    pressed: {
-                                        fill: "#FF5722",
-                                        stroke: props.elections[geography.properties.NAME] != null ? "#607D8B" : "#FF",
-                                        strokeWidth: 0.75,
-                                        outline: "none",
-                                    },
-                                } : 
-                                    {
-                                        default: {
-                                            fill: "#000",
-                                            stroke: "#000",
-                                            strokeWidth: 0.75,
-                                            outline: "none",
-                                        }
-                                    }
-                                }
+                                style={GetStyle(geography.properties.NAME)}
                             />
                         ))}
                     </Geographies>
                 </ZoomableGroup>
             </ComposableMap>
         </div>
-    )
+        )
+    }
+
+    GetStyle(stateName){
+        const electionTarget = this.props.elections[stateName];
+        if(electionTarget != null){
+            let partyColor = "#555";
+            if(electionTarget.projectedWinner != null){
+                console.log(Helpers);
+                partyColor = Helpers.GetPartyColor(electionTarget.projectedWinner.party)
+            }
+            return {
+                default: {
+                    fill: partyColor,
+                    stroke: "#EEE",
+                    strokeWidth: 2,
+                    outline: "none",
+                },
+                hover: {
+                    fill: partyColor,
+                    opacity: .5,
+                    stroke: "#EEE",
+                    strokeWidth: 2,
+                    outline: "none",
+                },
+                pressed: {
+                    fill: partyColor,
+                    stroke: "#EEE",
+                    strokeWidth: 2,
+                    outline: "none",
+                },
+            }
+        }
+        else{
+            return {
+                default: {
+                    fill: "#ECEFF1",
+                    stroke: "#ECEFF1",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                },
+                hover: {
+                    fill: "#ECEFF1",
+                    stroke: "#ECEFF1",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                },                
+                pressed: {
+                    fill: "#ECEFF1",
+                    stroke: "#ECEFF1",
+                    strokeWidth: 0.75,
+                    outline: "none",
+                }
+            }
+        } 
+    }
 }
 
 export default Map
