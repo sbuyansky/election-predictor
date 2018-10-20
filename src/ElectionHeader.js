@@ -3,50 +3,55 @@ import React, { Component } from "react"
 import { CSSTransitionGroup } from 'react-transition-group'
 import './ElectionHeader.css';
 import { Octicon, Octicons } from "octicons-react"
+import Helpers from "./Helpers.js"
 
-class ElectionHeader extends Component{
-    constructor(props){
-        super(props);
-        this.props = props;
+const ElectionHeader = ({selectedStateName, selectedState, handleWinnerSelect}) =>{
+    return (
+        <div className="row">
+            <h1 className="display-4 font-weight-normal col-12 text-center"> 2018 Senate Election - {selectedStateName}</h1>
+            <CSSTransitionGroup className="d-flex justify-content-center col-12" transitionName="example" transitionEnterTimeout={500} transitionLeave={false}>
+            {selectedState && selectedState.candidates && selectedState.candidates.map((candidate) => 
+                <div key={candidate.name} className={getCardStyle(candidate)} style={{minWidth: "250px", margin: "0px 25px 0px 25px", float:"left"}}>
+                    <div className="Card-header border-0">
+                        <img src={getCandidateImg(candidate)} style={{width: "100px", height: "125px"}} alt="Candidate"/>
+                    </div>
+                    <div className="card-block px-2 d-flex flex-column" style={{overflow: "hidden"}}>
+                        {formatName(candidate.name)}
+                        <h6 className="text-left" style={{color: Helpers.getPartyColor(candidate.party)}}>{candidate.party}</h6>
+                        {selectedState.projectedWinner && selectedState.projectedWinner.name === candidate.name ?  
+                            <button disabled class="btn btn-success mt-auto w-100" style={getButtonStyle(candidate.party)}><Octicon icon={Octicons.check}/> Selected</button> :
+                            <button onClick={() => handleWinnerSelect(candidate, selectedStateName)} className="btn btn-primary mt-auto w-100" style={getButtonStyle(candidate.party)}>Select Winner</button>
+                        }
+                    </div>
+                </div>)}
+                </CSSTransitionGroup>
+        </div>
+    );
+}
+
+const getCandidateImg = (candidate) =>{
+    return `img/candidates/${candidate.name.replace(/\s+/g, '')}.jpg`;
+}
+
+const getCardStyle = (candidate) => {
+    return `card flex-row flex-wrap card-${candidate.party}`;
+}
+
+const getButtonStyle = (party) => {
+    return {
+        marginBottom: "5px",
+        background: Helpers.getPartyColor(party),
+        border: "0px",
+        textShadow: "black 1px 1px 3px"
     }
+}
 
-    render(){
-        const selectedState = this.props.selectedState;
-        const selectedStateName = this.props.selectedStateName;
-        const handleWinnerSelect = this.props.handleWinnerSelect;
-        const GetCardStyle = this.GetCardStyle;
+const formatName = (name) => {
+    const nameSplit = name.split(" ");
+    const firstName = nameSplit[0].toUpperCase();
+    const lastName = nameSplit.slice(1).join(" ").toUpperCase();
 
-        return (
-            <div className="row">
-                <h1 className="display-4 font-weight-normal col-12 text-center"> 2018 Senate Election - {this.props.selectedStateName}</h1>
-                <CSSTransitionGroup className="d-flex justify-content-around col-12" transitionName="example" transitionEnterTimeout={500} transitionLeave={false}>
-                {selectedState && selectedState.candidates && selectedState.candidates.map((candidate) => 
-                    <div key={candidate.name} className={GetCardStyle(candidate)} style={{minWidth: "250px"}}>
-                        <div className="Card-header border-0">
-                            <img src={this.GetCandidateImg(candidate)} style={{width: "100px", height: "125px"}} alt="Candidate"/>
-                        </div>
-                        <div className="card-block px-2">
-                            <h5 className="card-title">{candidate.name}</h5>
-                            <p className="card-text">{candidate.party}</p>
-                            {selectedState.projectedWinner && selectedState.projectedWinner.name === candidate.name ?  
-                                <button disabled class="btn btn-success" style={{width: "125px"}}><Octicon icon={Octicons.check}/> Selected</button> :
-                                <button onClick={() => handleWinnerSelect(candidate, selectedStateName)} className="btn btn-primary" style={{width: "125px"}}>Select Winner</button>
-                            }
-                        </div>
-                    </div>)}
-                    </CSSTransitionGroup>
-            </div>
-        );
-    }
-
-    GetCandidateImg(candidate){
-        return "img/candidates/" + candidate.name.replace(/\s+/g, '') + ".jpg";
-    }
-
-    GetCardStyle(candidate){
-        const baseStyle = "card flex-row flex-wrap";
-        return baseStyle + " card-" + candidate.party;
-    }
+    return <span className="text-left" style={{marginTop: "5px", fontSize : "20px"}}>{firstName} <span style={{fontWeight : "bold"}}>{lastName}</span></span>
 }
 
 export default ElectionHeader

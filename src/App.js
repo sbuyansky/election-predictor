@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Map from './Map.js';
-import geographyObject from "./map.json"
-import elections from "./elections_senatorial.json"
-import ElectionHeader from "./ElectionHeader.js"
-import ElectionTable from "./ElectionTable.js"
-import {feature} from "topojson-client"
+import geographyObject from "./map.json";
+import ElectionHeader from "./ElectionHeader.js";
+import ElectionTable from "./ElectionTable.js";
+import {feature} from "topojson-client";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as predictionActions from "./actions/predictionActions.js";
 
 import './App.css';
 import './App.css';
@@ -14,7 +16,6 @@ class App extends Component {
     super()
     this.state = {
       geographyPaths: [],
-      elections: {},
       selectedStateName: "Massachusetts",
     };
 
@@ -28,28 +29,28 @@ class App extends Component {
       geographyObject.objects[Object.keys(geographyObject.objects)[0]]
     ).features;
     this.setState({ geographyPaths: geographyPaths });
-    this.setState({ elections: elections });
     this.handleStateSelect(this.state.selectedStateName);
-    console.log(Object.keys(elections).length);
   }
 
   render() {
-    return (
+    const {elections} = this.props.predictions;
+
+    return (elections != null ? 
       <div className="App container">
-        <ElectionHeader 
-          selectedState={this.state.elections[this.state.selectedStateName]}
+        <ElectionHeader
+          selectedState={elections[this.state.selectedStateName]}
           selectedStateName={this.state.selectedStateName}
           handleWinnerSelect={this.handleWinnerSelect}
           />
         <Map geography={this.state.geographyPaths} 
-          elections={this.state.elections} 
+          elections={elections} 
           handleStateSelect={this.handleStateSelect}/>
         <ElectionTable
-          elections={this.state.elections}
+          elections={elections}
           handleWinnerSelect={this.handleWinnerSelect}
           selectedStateName={this.state.selectedStateName}
         />
-      </div>
+      </div> : null
     );
   }
 
@@ -61,16 +62,21 @@ class App extends Component {
     if(!candidate || !candidate.name || !candidate.party){
       return;
     }
-    this.setState((prevState) => ({
-      elections: {
-        ...prevState.elections,
-        [stateName]: {
-          ...prevState.elections[stateName],
-          projectedWinner: candidate,
-        }
-      }
-    }))
+
+    this.props.actions.predictElection({candidate, stateName});
   }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    predictions: state.predictions
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(predictionActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

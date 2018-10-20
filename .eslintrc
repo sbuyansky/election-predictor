@@ -1,3 +1,9 @@
 {
-    "extends": "react-app"
+    "rules": {
+        "linebreak-style": [
+            "error",
+            "windows"
+        ]
+    },
+    "extends": ["react-app", "airbnb"]
 }

@@ -7,10 +7,12 @@
     "octicons-react": "^0.14.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4",
     "react-simple-maps": "^0.12.1",
     "react-transition-group": "1.x",
+    "redux": "^4.0.1",
     "topojson-client": "^3.0.0"
   },
   "scripts": {
@@ -27,5 +29,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0"
+  }
 }

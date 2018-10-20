@@ -17,13 +17,10 @@ class Map extends Component {
     constructor(props) {
         super(props)    
         this.props = props;
-        
-        this.GetStyle = this.GetStyle.bind(this);
     }
 
     render(){
         const props = this.props;
-        const GetStyle = this.GetStyle;
 
         return (
         <div style={wrapperStyles}>
@@ -48,7 +45,7 @@ class Map extends Component {
                                 cacheId={`geography-${i}`}
                                 projection={projection}
                                 onClick={props.elections[geography.properties.NAME] != null ? () => props.handleStateSelect(geography.properties.NAME) : null}
-                                style={GetStyle(geography.properties.NAME)}
+                                style={this.getStyle(geography.properties.NAME)}
                             />
                         ))}
                     </Geographies>
@@ -58,13 +55,12 @@ class Map extends Component {
         )
     }
 
-    GetStyle(stateName){
+    getStyle(stateName){
         const electionTarget = this.props.elections[stateName];
         if(electionTarget != null){
             let partyColor = "#555";
             if(electionTarget.projectedWinner != null){
-                console.log(Helpers);
-                partyColor = Helpers.GetPartyColor(electionTarget.projectedWinner.party)
+                partyColor = Helpers.getPartyColor(electionTarget.projectedWinner.party)
             }
             return {
                 default: {
