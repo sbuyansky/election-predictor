@@ -1,8 +1,8 @@
-import {combineReducers} from 'redux';
-import predictions from "./predictionReducer";
+import { combineReducers } from 'redux';
+import predictions from './predictionReducer';
 
 const rootReducer = combineReducers({
-    predictions
+  predictions,
 });
 
 export default rootReducer;
