@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { feature } from 'topojson-client';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import Map from './Map';
 import geographyObject from './map.json';
 import ElectionHeader from './ElectionHeader';
@@ -48,25 +49,26 @@ class App extends Component {
   }
 
   render() {
-    const { elections } = this.props.predictions;
+    const { predictions } = this.props;
+    const { selectedStateName, geographyPaths } = this.state;
 
-    return (elections != null
+    return (predictions.elections != null
       ? (
         <div className="App container">
           <ElectionHeader
-            selectedState={elections[this.state.selectedStateName]}
-            selectedStateName={this.state.selectedStateName}
+            selectedState={predictions.elections[selectedStateName]}
+            selectedStateName={selectedStateName}
             handleWinnerSelect={this.handleWinnerSelect}
           />
           <Map
-            geography={this.state.geographyPaths}
-            elections={elections}
+            geography={geographyPaths}
+            elections={predictions.elections}
             handleStateSelect={this.handleStateSelect}
           />
           <ElectionTable
-            elections={elections}
+            elections={predictions.elections}
             handleWinnerSelect={this.handleWinnerSelect}
-            selectedStateName={this.state.selectedStateName}
+            selectedStateName={selectedStateName}
           />
         </div>
       ) : null
@@ -74,12 +76,17 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   predictions: state.predictions,
 });
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(predictionActions, dispatch),
 });
+
+App.propTypes = {
+  predictions: PropTypes.any.isRequired,
+  actions: PropTypes.any.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

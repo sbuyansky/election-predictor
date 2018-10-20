@@ -1,5 +1,5 @@
 class Helpers {
-  getPartyColor(partyName) {
+  getPartyColor = (partyName) => {
     let partyColor = '';
 
     switch (partyName) {
