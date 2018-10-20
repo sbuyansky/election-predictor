@@ -19,17 +19,20 @@ const CandidateRow = ({ candidates, handleWinnerSelect, projectedWinner, stateNa
     const isWinner = projectedWinner != null && projectedWinner.name === candidate.name;
     return (
       isWinner ? (
-        <td key={candidate.name} style={{ background: Helpers.getPartyColor(candidate.party), textShadow: 'black 1px 1px 3px', color: 'white' }}>
-          <Octicon icon={Octicons.check} />
-          {getCandidateFormat(candidate, i)}
+        <td key={candidate.name} style={{ background: Helpers.getPartyColor(candidate.party), textShadow: 'black 1px 1px 3px', color: 'white', userSelect: 'none' }}>
+          <div className="nameContainer">
+            <Octicon icon={Octicons.check} />
+            {getCandidateFormat(candidate, i)}
+          </div>
         </td>
       )
         : (
-          <td style={{ cursor: 'pointer' }}>
+          <td style={{ cursor: 'pointer', userSelect: 'none' }}>
             <div
+              className="nameContainer"
               role="button"
               tabIndex="0"
-              onClick={() => handleWinnerSelect(candidate, stateName)}
+              onMouseDown={() => handleWinnerSelect(candidate, stateName)}
               onKeyPress={() => handleWinnerSelect(candidate, stateName)}
             >
               {getCandidateFormat(candidate, i)}

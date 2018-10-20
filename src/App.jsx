@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Map from './Map';
-import geographyObject from './map.json';
+import geographyObject from './data/map.json';
 import ElectionHeader from './ElectionHeader';
 import ElectionTable from './ElectionTable';
 import * as predictionActions from './actions/predictionActions';
@@ -39,32 +39,34 @@ class App extends Component {
   }
 
   handleWinnerSelect(candidate, stateName) {
-    const { actions } = this.props;
+    const { actions, electionType } = this.props;
     if (!candidate || !candidate.name || !candidate.party) {
       return;
     }
-    actions.predictElection({ candidate, stateName });
+    actions.predictElection({ candidate, stateName, electionType });
   }
 
   render() {
-    const { predictions } = this.props;
+    const { predictions, electionType } = this.props;
     const { selectedStateName, geographyPaths } = this.state;
 
-    return (predictions.elections != null
+    const elections = predictions[electionType];
+
+    return (elections != null
       ? (
         <div className="App container">
           <ElectionHeader
-            selectedState={predictions.elections[selectedStateName]}
+            selectedState={elections[selectedStateName]}
             selectedStateName={selectedStateName}
             handleWinnerSelect={this.handleWinnerSelect}
           />
           <Map
             geography={geographyPaths}
-            elections={predictions.elections}
+            elections={elections}
             handleStateSelect={this.handleStateSelect}
           />
           <ElectionTable
-            elections={predictions.elections}
+            elections={elections}
             handleWinnerSelect={this.handleWinnerSelect}
             selectedStateName={selectedStateName}
           />
@@ -85,6 +87,7 @@ const mapDispatchToProps = dispatch => ({
 App.propTypes = {
   predictions: PropTypes.any.isRequired,
   actions: PropTypes.any.isRequired,
+  electionType: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Helpers from './Helpers';
 import CandidateRow from './CandidateRow';
 
+import './ElectionTable.css';
+
 const getCandidateRows = (stateName, elections, handleWinnerSelect) => {
   const candidates = [{}, {}, {}];
   const election = elections[stateName];
@@ -33,7 +35,7 @@ const getCandidateRows = (stateName, elections, handleWinnerSelect) => {
 };
 
 const ElectionTable = ({ elections, handleWinnerSelect }) => (
-  <table className="table table-sm table-striped" style={{ margin: '0px auto' }}>
+  <table className="table table-sm table-striped electionTable" style={{ margin: '0px auto' }}>
     <thead>
       <tr>
         <th scope="col" style={{ background: '#222', textShadow: 'black 1px 1px 3px', color: 'white' }}>State</th>

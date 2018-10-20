@@ -1,19 +1,37 @@
 /* eslint react/jsx-filename-extension: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import configureStore from './store/configureStore';
-import elections from './elections_senatorial.json';
+import electionsSenate from './data/elections_senatorial.json';
+import electionsGovernor from './data/elections_gubernatorial.json';
 
-const store = configureStore({ predictions: { elections } });
+import './index.css';
+
+const store = configureStore({ predictions: { electionsSenate, electionsGovernor } });
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <div>
+        <Route
+          path="/senate"
+          render={props => <App {...props} electionType="electionsSenate" />}
+        />
+        <Route
+          path="/governor"
+          render={props => <App {...props} electionType="electionsGovernor" />}
+        />
+        <Route
+          path="/"
+          render={props => <App {...props} electionType="electionsSenate" />}
+        />
+      </div>
+    </Router>
   </Provider>,
   document.getElementById('root'),
 );
