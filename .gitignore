@@ -22,3 +22,4 @@ yarn-error.log*
 
 /public/img/
 .vscode/
+/CandidateScraper/*.html
