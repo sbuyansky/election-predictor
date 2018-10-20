@@ -40,11 +40,9 @@ class App extends Component {
 
   handleWinnerSelect(candidate, stateName) {
     const { actions } = this.props;
-
     if (!candidate || !candidate.name || !candidate.party) {
       return;
     }
-
     actions.predictElection({ candidate, stateName });
   }
 

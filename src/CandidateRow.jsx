@@ -14,24 +14,36 @@ const getCandidateFormat = (candidate, i) => {
   return `${candidate.name} (${candidate.party})`;
 };
 
-const CandidateRow = ({ candidates, handleWinnerSelect, projectedWinner, stateName }) => {
+const CandidateRow = ({ candidates, handleWinnerSelect, projectedWinner, stateName }) => (
   candidates.map((candidate, i) => {
-    const isWinner = projectedWinner && projectedWinner.name === candidate.name;
+    const isWinner = projectedWinner != null && projectedWinner.name === candidate.name;
     return (
       isWinner ? (
         <td key={candidate.name} style={{ background: Helpers.getPartyColor(candidate.party), textShadow: 'black 1px 1px 3px', color: 'white' }}>
-          <Octicon icon={Octicons.check} />{getCandidateFormat(candidate, i)}
+          <Octicon icon={Octicons.check} />
+          {getCandidateFormat(candidate, i)}
         </td>
       )
-        : <td style={{ cursor: 'pointer' }}><button type="button" onClick={() => handleWinnerSelect(candidate, stateName)}>{getCandidateFormat(candidate, i)}</button></td>
+        : (
+          <td style={{ cursor: 'pointer' }}>
+            <div
+              role="button"
+              tabIndex="0"
+              onClick={() => handleWinnerSelect(candidate, stateName)}
+              onKeyPress={() => handleWinnerSelect(candidate, stateName)}
+            >
+              {getCandidateFormat(candidate, i)}
+            </div>
+          </td>
+        )
     );
-  });
-};
+  })
+);
 
 CandidateRow.propTypes = {
   candidates: PropTypes.any.isRequired,
   handleWinnerSelect: PropTypes.func.isRequired,
-  projectedWinner: PropTypes.any.isRequired,
+  projectedWinner: PropTypes.any,
   stateName: PropTypes.string.isRequired,
 };
 
