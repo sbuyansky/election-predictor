@@ -14,6 +14,12 @@ export default function predictionReducer(state = {}, action) {
             },
           },
         });
+    case actions.PREDICT_HOUSE:
+      return (
+        {
+          ...state,
+          [action.prediction.electionType]: action.prediction.numDemSeats,
+        });
     default:
       return state;
   }

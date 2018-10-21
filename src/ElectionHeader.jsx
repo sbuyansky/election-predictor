@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import './ElectionHeader.css';
@@ -34,13 +33,13 @@ const formatName = (name) => {
 const ElectionHeader = ({ selectedStateName, selectedState, handleWinnerSelect }) => (
   <div className="row">
     <h1 className="display-4 font-weight-normal col-12 text-center">
-      2018 Senate Election - {selectedStateName}
+      {selectedStateName} - Senate
     </h1>
     <CSSTransitionGroup className="d-flex justify-content-center col-12" transitionName="example" transitionEnterTimeout={500} transitionLeave={false}>
       {selectedState && selectedState.candidates && selectedState.candidates.map(candidate => (
         <div key={candidate.name} className={getCardStyle(candidate)} style={{ minWidth: '250px', margin: '0px 25px 0px 25px', float: 'left' }}>
           <div className="Card-header border-0">
-            <img src={getCandidateImg(candidate)} style={{ width: '100px', height: '125px' }} alt="Candidate" />
+            <img src={getCandidateImg(candidate)} style={{ width: '100px', height: '125px' }} alt="Candidate" onError={(e) => { e.target.onerror = null; e.target.src = 'img/candidates/default.jpg'; }} />
           </div>
           <div className="card-block px-2 d-flex flex-column" style={{ overflow: 'hidden' }}>
             {formatName(candidate.name)}

@@ -7,6 +7,7 @@ import Map from './Map';
 import geographyObject from './data/map.json';
 import ElectionHeader from './ElectionHeader';
 import ElectionTable from './ElectionTable';
+import NavBar from './NavBar';
 import * as predictionActions from './actions/predictionActions';
 
 import './App.css';
@@ -55,15 +56,16 @@ class App extends Component {
     return (elections != null
       ? (
         <div className="App container">
-          <ElectionHeader
-            selectedState={elections[selectedStateName]}
-            selectedStateName={selectedStateName}
-            handleWinnerSelect={this.handleWinnerSelect}
-          />
+          <NavBar />
           <Map
             geography={geographyPaths}
             elections={elections}
             handleStateSelect={this.handleStateSelect}
+          />
+          <ElectionHeader
+            selectedState={elections[selectedStateName]}
+            selectedStateName={selectedStateName}
+            handleWinnerSelect={this.handleWinnerSelect}
           />
           <ElectionTable
             elections={elections}

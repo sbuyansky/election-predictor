@@ -6,6 +6,8 @@
     "bootstrap": "4",
     "octicons-react": "^0.14.0",
     "prop-types": "^15.6.2",
+    "rc-slider": "^8.6.3",
+    "rc-tooltip": "^3.7.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

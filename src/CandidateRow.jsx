@@ -34,6 +34,7 @@ const CandidateRow = ({ candidates, handleWinnerSelect, projectedWinner, stateNa
               tabIndex="0"
               onMouseDown={() => handleWinnerSelect(candidate, stateName)}
               onKeyPress={() => handleWinnerSelect(candidate, stateName)}
+              key={candidate.name}
             >
               {getCandidateFormat(candidate, i)}
             </div>

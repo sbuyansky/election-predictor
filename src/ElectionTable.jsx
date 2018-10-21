@@ -26,6 +26,7 @@ const getCandidateRows = (stateName, elections, handleWinnerSelect) => {
 
   return (
     <CandidateRow
+      key={stateName}
       projectedWinner={election.projectedWinner}
       candidates={candidates}
       handleWinnerSelect={handleWinnerSelect}

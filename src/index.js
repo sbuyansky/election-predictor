@@ -2,17 +2,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './App';
+import HouseApp from './HouseApp';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import configureStore from './store/configureStore';
+import * as constants from './constants';
+
 import electionsSenate from './data/elections_senatorial.json';
 import electionsGovernor from './data/elections_gubernatorial.json';
+import housePartisanIndex from './data/house_partisan_index.json';
 
 import './index.css';
 
-const store = configureStore({ predictions: { electionsSenate, electionsGovernor } });
+const store = configureStore(
+  {
+    predictions:
+    {
+      [constants.ELECTION_TYPE_SENATE]: electionsSenate,
+      [constants.ELECTION_TYPE_GOVERNOR]: electionsGovernor,
+      [constants.ELECTION_TYPE_HOUSE]: 218,
+    },
+    data:
+    {
+      [constants.ELECTION_TYPE_HOUSE]: housePartisanIndex.partisan_index,
+    },
+  },
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,15 +37,20 @@ ReactDOM.render(
       <div>
         <Route
           path="/senate"
-          render={props => <App {...props} electionType="electionsSenate" />}
+          render={props => <App {...props} electionType={constants.ELECTION_TYPE_SENATE} />}
+        />
+        <Route
+          path="/house"
+          render={props => <HouseApp {...props} electionType={constants.ELECTION_TYPE_HOUSE} />}
         />
         <Route
           path="/governor"
-          render={props => <App {...props} electionType="electionsGovernor" />}
+          render={props => <App {...props} electionType={constants.ELECTION_TYPE_GOVERNOR} />}
         />
         <Route
           path="/"
-          render={props => <App {...props} electionType="electionsSenate" />}
+          exact
+          render={props => <App {...props} electionType={constants.ELECTION_TYPE_SENATE} />}
         />
       </div>
     </Router>

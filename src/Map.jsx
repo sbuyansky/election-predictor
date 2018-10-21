@@ -5,7 +5,8 @@ import {
   Geographies,
   Geography,
 } from 'react-simple-maps';
-import Helpers from './Helpers.js';
+import PropTypes from 'prop-types';
+import Helpers from './Helpers';
 
 const wrapperStyles = {
   width: '100%',
@@ -19,44 +20,9 @@ class Map extends Component {
     this.props = props;
   }
 
-  render() {
-    const props = this.props;
-
-    return (
-      <div style={wrapperStyles}>
-        <ComposableMap
-          projection="albersUsa"
-          projectionConfig={{
-            scale: 1000,
-          }}
-          width={980}
-          height={551}
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-        >
-          <ZoomableGroup center={[0, 20]} disablePanning>
-            <Geographies geography={props.geography} disableOptimization>
-              {(geographies, projection) => geographies.map((geography, i) => (
-                <Geography
-                  key={i}
-                  geography={geography}
-                  cacheId={`geography-${i}`}
-                  projection={projection}
-                  onClick={props.elections[geography.properties.NAME] != null ? () => props.handleStateSelect(geography.properties.NAME) : null}
-                  style={this.getStyle(geography.properties.NAME)}
-                />
-              ))}
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
-      </div>
-    );
-  }
-
-  getStyle(stateName) {
-    const electionTarget = this.props.elections[stateName];
+  getStyleState(stateName) {
+    const { elections } = this.props;
+    const electionTarget = elections[stateName];
     if (electionTarget != null) {
       let partyColor = '#555';
       if (electionTarget.projectedWinner != null) {
@@ -106,6 +72,93 @@ class Map extends Component {
       },
     };
   }
+
+  static getStyleHouse(geoID, numDemSeats, partisanIndex) {
+    let color = '';
+    const index = partisanIndex.indexOf(geoID);
+
+    if (index === -1) {
+      color = '#000';
+    }
+    else if (index > numDemSeats) {
+      color = Helpers.getPartyColor('Republican');
+    }
+    else {
+      color = Helpers.getPartyColor('Democratic');
+    }
+
+    return {
+      default: {
+        fill: color,
+        stroke: '#ECEFF1',
+        strokeWidth: 0.75,
+        outline: 'none',
+      },
+      hover: {
+        fill: color,
+        stroke: '#ECEFF1',
+        strokeWidth: 0.75,
+        outline: 'none',
+      },
+      pressed: {
+        fill: color,
+        stroke: '#ECEFF1',
+        strokeWidth: 0.75,
+        outline: 'none',
+      },
+    };
+  }
+
+  render() {
+    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex } = this.props;
+
+    return (
+      <div style={wrapperStyles}>
+        <ComposableMap
+          projection="albersUsa"
+          projectionConfig={{
+            scale: 1000,
+          }}
+          width={980}
+          height={551}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        >
+          <ZoomableGroup center={[0, 20]} disablePanning>
+            <Geographies geography={geography} disableOptimization>
+              {(geographies, projection) => geographies.map(geographyPart => (
+                <Geography
+                  key={geographyPart.properties.AFFGEOID}
+                  geography={geographyPart}
+                  cacheId={`geography-${geographyPart.properties.AFFGEOID}`}
+                  projection={projection}
+                  onClick={elections && elections[geographyPart.properties.NAME] != null ? () => handleStateSelect(geographyPart.properties.NAME) : () => console.log(geographyPart.properties)}
+                  style={elections !== null ? this.getStyleState(geographyPart.properties.NAME) : Map.getStyleHouse(geographyPart.properties.GEOID, numDemSeats, partisanIndex)}
+                />
+              ))}
+            </Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
+      </div>
+    );
+  }
 }
+
+Map.propTypes = {
+  elections: PropTypes.any,
+  numDemSeats: PropTypes.number,
+  partisanIndex: PropTypes.any,
+  geography: PropTypes.any.isRequired,
+  handleStateSelect: PropTypes.any,
+};
+
+Map.defaultProps = {
+  elections: null,
+  handleStateSelect: null,
+  numDemSeats: 218,
+  partisanIndex: null,
+};
 
 export default Map;
