@@ -57,15 +57,16 @@ class App extends Component {
       ? (
         <div className="App container">
           <NavBar />
-          <Map
-            geography={geographyPaths}
-            elections={elections}
-            handleStateSelect={this.handleStateSelect}
-          />
           <ElectionHeader
             selectedState={elections[selectedStateName]}
             selectedStateName={selectedStateName}
             handleWinnerSelect={this.handleWinnerSelect}
+            electionType={electionType}
+          />
+          <Map
+            geography={geographyPaths}
+            elections={elections}
+            handleStateSelect={this.handleStateSelect}
           />
           <ElectionTable
             elections={elections}

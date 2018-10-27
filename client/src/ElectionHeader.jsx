@@ -4,6 +4,7 @@ import './ElectionHeader.css';
 import { Octicon, Octicons } from 'octicons-react';
 import PropTypes from 'prop-types';
 import Helpers from './Helpers';
+import * as Constants from './constants';
 
 const getCandidateImg = candidate => `img/candidates/${candidate.name.replace(/\s+/g, '')}.jpg`;
 
@@ -30,10 +31,10 @@ const formatName = (name) => {
   );
 };
 
-const ElectionHeader = ({ selectedStateName, selectedState, handleWinnerSelect }) => (
+const ElectionHeader = ({ selectedStateName, selectedState, handleWinnerSelect, electionType }) => (
   <div className="row">
     <h1 className="display-4 font-weight-normal col-12 text-center">
-      {selectedStateName} - Senate
+      {electionType === Constants.ELECTION_TYPE_SENATE ? "Senate" : "Governor"} - {selectedStateName} 
     </h1>
     <CSSTransitionGroup className="d-flex justify-content-center col-12" transitionName="example" transitionEnterTimeout={500} transitionLeave={false}>
       {selectedState && selectedState.candidates && selectedState.candidates.map(candidate => (
