@@ -19,6 +19,7 @@ class HouseApp extends Component {
     };
 
     this.handleNumSeatsChange = this.handleNumSeatsChange.bind(this);
+    this.handleSave = this.handleSave.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,11 @@ class HouseApp extends Component {
     actions.predictHouse({ numDemSeats, electionType });
   }
 
+  handleSave() {
+    const { actions } = this.props;
+    actions.saveData();
+  }
+
   render() {
     const { geographyPaths } = this.state;
     const { predictions, electionType, data } = this.props;
@@ -43,7 +49,9 @@ class HouseApp extends Component {
 
     return (
       <div className="App container">
-        <NavBar />
+        <NavBar 
+          handleSave={this.handleSave}
+        />
         <Map
           numDemSeats={numDemSeats}
           geography={geographyPaths}

@@ -6,3 +6,4 @@ export const PREDICT_HOUSE = 'PREDICT_HOUSE';
 
 // DATA
 export const LOAD_DATA = 'LOAD_DATA';
+export const SAVE_DATA = 'SAVE_DATA';

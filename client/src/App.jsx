@@ -22,6 +22,8 @@ class App extends Component {
 
     this.handleStateSelect = this.handleStateSelect.bind(this);
     this.handleWinnerSelect = this.handleWinnerSelect.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+    this.handleLoad = this.handleLoad.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +49,16 @@ class App extends Component {
     actions.predictElection({ candidate, stateName, electionType });
   }
 
+  handleSave() {
+    const { actions } = this.props;
+    actions.saveData();
+  }
+
+  handleLoad() {
+    const { actions } = this.props;
+    actions.loadData();
+  }
+
   render() {
     const { predictions, electionType } = this.props;
     const { selectedStateName, geographyPaths } = this.state;
@@ -56,7 +68,10 @@ class App extends Component {
     return (elections != null
       ? (
         <div className="App container">
-          <NavBar />
+          <NavBar 
+            handleSave={this.handleSave}
+            handleLoad={this.handleLoad}
+          />
           <ElectionHeader
             selectedState={elections[selectedStateName]}
             selectedStateName={selectedStateName}
