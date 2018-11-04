@@ -1,3 +1,21 @@
+-- SEQUENCE: public.candidates_id_seq
+
+-- DROP SEQUENCE public.candidates_id_seq;
+
+CREATE SEQUENCE public.candidates_id_seq;
+
+ALTER SEQUENCE public.candidates_id_seq
+    OWNER TO postgres;
+
+-- SEQUENCE: public.predictions_id_seq
+
+-- DROP SEQUENCE public.predictions_id_seq;
+
+CREATE SEQUENCE public.predictions_id_seq;
+
+ALTER SEQUENCE public.predictions_id_seq
+    OWNER TO postgres;
+
 -- Table: public.candidates
 
 -- DROP TABLE public.candidates;
