@@ -24,3 +24,4 @@ yarn-error.log*
 /client/public/img/
 .vscode/
 /CandidateScraper/*.html
+*config.js

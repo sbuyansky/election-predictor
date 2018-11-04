@@ -1,0 +1,15 @@
+const config = () => {
+    var environment = process.env.NODE_ENV || 'development';
+    switch(environment){
+        case 'development':
+            return {'pgconnectionstring': 'example config'};
+
+        case 'production':
+            return {'pgconnectionstring': 'example prod config'};
+
+        default:
+            return {};
+    }
+};
+
+export default config;
