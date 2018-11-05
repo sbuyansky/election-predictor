@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({ handleSave, handleLoad }) => (
+const NavBar = ({ handleSave, handleLoad, handlePredictionIdChange, predictionId }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">Election Predictor</a>
 
@@ -20,7 +20,7 @@ const NavBar = ({ handleSave, handleLoad }) => (
           <Link className="nav-link" to="/governor">Governor</Link>
         </li>
       </ul>
-      <input class="form-control mr-sm-2" type="text" placeholder="Prediction ID" aria-label="PredictionID"/>
+      <input maxlength="20" className="form-control mr-sm-2" type="text" placeholder="Prediction ID" aria-label="PredictionID" value={predictionId} onChange={(e) => handlePredictionIdChange(e)}/>
       <button className="btn my-2 my-sm-0" onClick={() => handleSave()} type="button">Save</button>
       <button className="btn my-2 my-sm-0" onClick={() => handleLoad()} type="button">Load</button>
     </div>

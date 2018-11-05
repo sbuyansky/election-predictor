@@ -31,7 +31,7 @@ const formatName = (name) => {
   );
 };
 
-const ElectionHeader = ({ selectedStateName, selectedState, handleWinnerSelect, electionType }) => (
+const ElectionHeader = ({ selectedStateName, selectedState, selectedStatePrediction, handleWinnerSelect, electionType }) => (
   <div className="row">
     <h1 className="display-4 font-weight-normal col-12 text-center">
       {electionType === Constants.ELECTION_TYPE_SENATE ? "Senate" : "Governor"} - {selectedStateName} 
@@ -45,7 +45,7 @@ const ElectionHeader = ({ selectedStateName, selectedState, handleWinnerSelect, 
           <div className="card-block px-2 d-flex flex-column" style={{ overflow: 'hidden' }}>
             {formatName(candidate.name)}
             <h6 className="text-left" style={{ color: Helpers.getPartyColor(candidate.party) }}>{candidate.party}</h6>
-            {selectedState.projectedWinner && selectedState.projectedWinner.name === candidate.name
+            {selectedStatePrediction && selectedStatePrediction.projectedWinner && selectedStatePrediction.projectedWinner.name === candidate.name
               ? (
                 <button type="button" disabled className="btn btn-success mt-auto w-100" style={getButtonStyle(candidate.party)}>
                   <Octicon icon={Octicons.check} /> Selected
@@ -63,6 +63,7 @@ const ElectionHeader = ({ selectedStateName, selectedState, handleWinnerSelect, 
 ElectionHeader.propTypes = {
   selectedStateName: PropTypes.string.isRequired,
   selectedState: PropTypes.any.isRequired,
+  selectedStatePrediction: PropTypes.any,
   handleWinnerSelect: PropTypes.func.isRequired,
 };
 

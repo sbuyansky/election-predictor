@@ -19,6 +19,7 @@ module.exports = {
     // external queries for Users:
     predictions: {
         addOrUpdate: sql('./sql/UpsertPrediction.sql'),
-        addOrUpdateHouse: sql('./sql/UpsertPredictionHouse.sql')
+        addOrUpdateHouse: sql('./sql/UpsertPredictionHouse.sql'),
+        get: sql('./sql/GetPrediction.sql')
     }
 };

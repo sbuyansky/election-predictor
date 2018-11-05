@@ -24,6 +24,7 @@ class App extends Component {
     this.handleWinnerSelect = this.handleWinnerSelect.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleLoad = this.handleLoad.bind(this);
+    this.handlePredictionIdChange = this.handlePredictionIdChange.bind(this);
   }
 
   componentDidMount() {
@@ -50,20 +51,26 @@ class App extends Component {
   }
 
   handleSave() {
-    const { actions } = this.props;
-    actions.saveData();
+    const { actions, predictionsAll } = this.props;
+    actions.saveData(predictionsAll);
   }
 
   handleLoad() {
+    const { actions, predictionsAll } = this.props;
+    actions.loadData(predictionsAll.predictionId);
+  }
+
+  handlePredictionIdChange(event) {
     const { actions } = this.props;
-    actions.loadData();
+    actions.updatePredictionId(event.target.value);
   }
 
   render() {
-    const { predictions, electionType } = this.props;
+    const { data, predictionsAll, electionType } = this.props;
     const { selectedStateName, geographyPaths } = this.state;
 
-    const elections = predictions[electionType];
+    const elections = data[electionType];
+    const predictions = predictionsAll[electionType];
 
     return (elections != null
       ? (
@@ -71,9 +78,12 @@ class App extends Component {
           <NavBar 
             handleSave={this.handleSave}
             handleLoad={this.handleLoad}
+            handlePredictionIdChange={this.handlePredictionIdChange}
+            predictionId={predictionsAll.predictionId}
           />
           <ElectionHeader
             selectedState={elections[selectedStateName]}
+            selectedStatePrediction={predictions[selectedStateName]}
             selectedStateName={selectedStateName}
             handleWinnerSelect={this.handleWinnerSelect}
             electionType={electionType}
@@ -81,10 +91,12 @@ class App extends Component {
           <Map
             geography={geographyPaths}
             elections={elections}
+            predictions={predictions}
             handleStateSelect={this.handleStateSelect}
           />
           <ElectionTable
             elections={elections}
+            predictions={predictions}
             handleWinnerSelect={this.handleWinnerSelect}
             selectedStateName={selectedStateName}
           />
@@ -95,7 +107,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  predictions: state.predictions,
+  predictionsAll: state.predictions,
+  data: state.data
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -103,7 +116,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 App.propTypes = {
-  predictions: PropTypes.any.isRequired,
+  predictionsAll: PropTypes.any.isRequired,
+  data: PropTypes.any.isRequired,
   actions: PropTypes.any.isRequired,
   electionType: PropTypes.string.isRequired,
 };

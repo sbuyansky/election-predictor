@@ -20,15 +20,18 @@ const store = configureStore(
   {
     predictions:
     {
-      [constants.ELECTION_TYPE_SENATE]: electionsSenate,
-      [constants.ELECTION_TYPE_GOVERNOR]: electionsGovernor,
+      [constants.ELECTION_TYPE_SENATE]: {},
+      [constants.ELECTION_TYPE_GOVERNOR]: {},
       [constants.ELECTION_TYPE_HOUSE]: 218,
+      predictionId: ''
     },
     data:
     {
       [constants.ELECTION_TYPE_HOUSE]: housePartisanIndex.partisan_index,
+      [constants.ELECTION_TYPE_SENATE]: electionsSenate,
+      [constants.ELECTION_TYPE_GOVERNOR]: electionsGovernor,
     },
-  },
+  }
 );
 
 ReactDOM.render(

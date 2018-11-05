@@ -17,7 +17,7 @@ app.use('/', router);
 
 
 //router.get('/api/predictions', db.getAllPredictions);
-//router.get('/api/predictions/:id', db.getPrediction);
+router.get('/api/predictions', db.getPrediction);
 router.post('/api/predictions', db.createPrediction);
 //router.put('/api/predictions/:id', db.updatePrediction);
 

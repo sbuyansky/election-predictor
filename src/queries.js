@@ -29,7 +29,7 @@ export const createPrediction = (req, res, next) => {
 
   db.tx(t => {
     const queries = [];
-    const string_identifier = 'test_prediction';
+    const string_identifier = predictions.predictionId;
     
     // creating a sequence of transaction queries:
     Object.keys(predictions).forEach(electionType => {
@@ -78,6 +78,49 @@ export const createPrediction = (req, res, next) => {
 }
 
 export const getPrediction = (req, res, next) => {
-  const string_identifier = req.body.string_identifier;
-  db.any('SELECT * FROM product WHERE price BETWEEN $<string_identifier>', {string_identifier});
+  const string_identifier = req.query.string_identifier;
+
+  db.any(sql.predictions.get, {string_identifier})
+  .then(data => {
+    let predictions = {
+      electionsHouse : 218,
+      electionsSenate : {},
+      electionsGovernor : {},
+      predictionId : string_identifier
+    };
+
+    data.forEach((row, index, data) => {
+        console.log(row);
+        let election_type = row.election_type;
+        
+        if(!predictions[election_type]){
+          predictions[election_type] = {};
+        }
+
+        switch (election_type){
+          case 'electionsHouse':
+            predictions[election_type] = row.dem_seats;
+            break;
+
+          case 'electionsSenate':
+          case 'electionsGovernor':
+            predictions[election_type][row.state] = {
+              projectedWinner : {
+                name : row.name,
+                party : row.party
+              }
+            }
+            break;
+          default:
+            break;
+        }
+    });
+
+    res
+      .status(200)
+      .json({
+        predictions
+      });
+  });
+
 }

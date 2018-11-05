@@ -21,12 +21,13 @@ class Map extends Component {
   }
 
   getStyleState(stateName) {
-    const { elections } = this.props;
-    const electionTarget = elections[stateName];
-    if (electionTarget != null) {
+    const { elections, predictions } = this.props;
+    const election = elections[stateName];
+    const prediction = predictions[stateName];
+    if (election != null) {
       let partyColor = '#555';
-      if (electionTarget.projectedWinner != null) {
-        partyColor = Helpers.getPartyColor(electionTarget.projectedWinner.party);
+      if (prediction && prediction.projectedWinner) {
+        partyColor = Helpers.getPartyColor(prediction.projectedWinner.party);
       }
       return {
         default: {
@@ -110,7 +111,7 @@ class Map extends Component {
   }
 
   render() {
-    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex } = this.props;
+    const { elections, predictions, handleStateSelect, geography, numDemSeats, partisanIndex } = this.props;
 
     return (
       <div style={wrapperStyles}>

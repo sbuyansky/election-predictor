@@ -5,9 +5,10 @@ import CandidateRow from './CandidateRow';
 
 import './ElectionTable.css';
 
-const getCandidateRows = (stateName, elections, handleWinnerSelect) => {
+const getCandidateRows = (stateName, elections, predictions, handleWinnerSelect) => {
   const candidates = [{}, {}, {}];
   const election = elections[stateName];
+  const prediction = predictions[stateName];
 
   election.candidates.forEach((candidate) => {
     if (candidate.party === 'Democratic') {
@@ -27,7 +28,7 @@ const getCandidateRows = (stateName, elections, handleWinnerSelect) => {
   return (
     <CandidateRow
       key={stateName}
-      projectedWinner={election.projectedWinner}
+      prediction={prediction}
       candidates={candidates}
       handleWinnerSelect={handleWinnerSelect}
       stateName={stateName}
@@ -35,7 +36,7 @@ const getCandidateRows = (stateName, elections, handleWinnerSelect) => {
   );
 };
 
-const ElectionTable = ({ elections, handleWinnerSelect }) => (
+const ElectionTable = ({ elections, handleWinnerSelect, predictions }) => (
   <table className="table table-sm table-striped electionTable" style={{ margin: '0px auto' }}>
     <thead>
       <tr>
@@ -49,7 +50,7 @@ const ElectionTable = ({ elections, handleWinnerSelect }) => (
       {Object.keys(elections).filter(key => key !== 'elections').sort().map(stateName => (
         <tr key={stateName}>
           <td>{stateName}</td>
-          {getCandidateRows(stateName, elections, handleWinnerSelect)}
+          {getCandidateRows(stateName, elections, predictions, handleWinnerSelect)}
         </tr>
       ))}
     </tbody>
@@ -58,6 +59,7 @@ const ElectionTable = ({ elections, handleWinnerSelect }) => (
 
 ElectionTable.propTypes = {
   elections: PropTypes.any.isRequired,
+  predictions: PropTypes.any.isRequired,
   handleWinnerSelect: PropTypes.func.isRequired,
 };
 

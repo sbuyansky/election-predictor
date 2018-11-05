@@ -20,6 +20,8 @@ class HouseApp extends Component {
 
     this.handleNumSeatsChange = this.handleNumSeatsChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.handleLoad = this.handleLoad.bind(this);
+    this.handlePredictionIdChange = this.handlePredictionIdChange.bind(this);
   }
 
   componentDidMount() {
@@ -36,21 +38,34 @@ class HouseApp extends Component {
   }
 
   handleSave() {
+    const { actions, predictionsAll } = this.props;
+    actions.saveData(predictionsAll);
+  }
+
+  handleLoad() {
+    const { actions, predictionsAll } = this.props;
+    actions.loadData(predictionsAll.predictionId);
+  }
+
+  handlePredictionIdChange(event) {
     const { actions } = this.props;
-    actions.saveData();
+    actions.updatePredictionId(event.target.value);
   }
 
   render() {
     const { geographyPaths } = this.state;
-    const { predictions, electionType, data } = this.props;
+    const { predictionsAll, electionType, data } = this.props;
 
     const partisanIndex = data[electionType];
-    const numDemSeats = predictions[electionType];
+    const numDemSeats = predictionsAll[electionType];
 
     return (
       <div className="App container">
         <NavBar 
           handleSave={this.handleSave}
+          handleLoad={this.handleLoad}
+          handlePredictionIdChange={this.handlePredictionIdChange}
+          predictionId={predictionsAll.predictionId}
         />
         <Map
           numDemSeats={numDemSeats}
@@ -67,7 +82,7 @@ class HouseApp extends Component {
 }
 
 const mapStateToProps = state => ({
-  predictions: state.predictions,
+  predictionsAll: state.predictions,
   data: state.data,
 });
 
