@@ -94,6 +94,7 @@ class App extends Component {
             elections={elections}
             predictions={predictions}
             handleStateSelect={this.handleStateSelect}
+            electionType={electionType}
           />
           <ElectionTable
             elections={elections}

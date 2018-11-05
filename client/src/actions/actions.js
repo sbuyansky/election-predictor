@@ -11,3 +11,5 @@ export const LOAD_DATA_SUCCESS = 'LOAD_DATA_SUCCESS';
 export const LOAD_DATA_FAIL = 'LOAD_DATA_FAIL';
 
 export const SAVE_DATA = 'SAVE_DATA';
+export const SAVE_DATA_SUCCESS = 'SAVE_DATA_SUCCESS';
+export const SAVE_DATA_FAIL = 'SAVE_DATA_FAIL';

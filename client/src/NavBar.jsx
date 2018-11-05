@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = ({ handleSave, handleLoad, handlePredictionIdChange, predictionId, electionType }) => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,6 +23,7 @@ const NavBar = ({ handleSave, handleLoad, handlePredictionIdChange, predictionId
       <input maxlength="20" className="form-control mr-sm-2" type="text" placeholder="Enter a Prediction ID" aria-label="PredictionID" value={predictionId} onChange={(e) => handlePredictionIdChange(e)} style={{width: '200px'}}/>
       <button className="btn btn-light" onClick={() => handleSave()} type="button" disabled={predictionId === ''}>Save</button>
     </div>
+    <ToastContainer />
   </nav>
 );
 

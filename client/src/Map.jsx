@@ -4,9 +4,12 @@ import {
   ZoomableGroup,
   Geographies,
   Geography,
+  Marker,
+  Markers
 } from 'react-simple-maps';
 import PropTypes from 'prop-types';
 import Helpers from './Helpers';
+import * as constants from './constants';
 
 const wrapperStyles = {
   width: '100%',
@@ -25,7 +28,7 @@ class Map extends Component {
     const election = elections[stateName];
     const prediction = predictions[stateName];
     if (election != null) {
-      let partyColor = '#555';
+      let partyColor = '#000';
       if (prediction && prediction.projectedWinner) {
         partyColor = Helpers.getPartyColor(prediction.projectedWinner.party);
       }
@@ -111,7 +114,16 @@ class Map extends Component {
   }
 
   render() {
-    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex } = this.props;
+    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex, electionType } = this.props;
+    const markers = 
+      electionType === constants.ELECTION_TYPE_SENATE ?
+        [
+          {
+            coordinates: [ -94.6859, 46.7296 ] ,
+            name : 'Minnesota Special',
+          }
+        ] : null;
+
 
     return (
       <div style={wrapperStyles}>
@@ -135,11 +147,28 @@ class Map extends Component {
                   geography={geographyPart}
                   cacheId={`geography-${geographyPart.properties.AFFGEOID}`}
                   projection={projection}
-                  onClick={elections && elections[geographyPart.properties.NAME] != null ? () => handleStateSelect(geographyPart.properties.NAME) : () => console.log(geographyPart.properties)}
+                  onClick={elections && elections[geographyPart.properties.NAME] != null ? () => handleStateSelect(geographyPart.properties.NAME) : null }
                   style={elections !== null ? this.getStyleState(geographyPart.properties.NAME) : Map.getStyleHouse(geographyPart.properties.GEOID, numDemSeats, partisanIndex)}
                 />
               ))}
             </Geographies>
+            {markers && <Markers>
+              {markers.map((marker, i) => (
+                <Marker
+                  key={marker.name}
+                  marker={marker}
+                  style={this.getStyleState(marker.name)}
+                  onClick={elections && elections[marker.name] != null ? () => handleStateSelect(marker.name) : null}
+                  >
+                  <circle
+                      cx={0}
+                      cy={0}
+                      r={15}
+                    />
+                </Marker>
+                ))
+              }
+            </Markers>}
           </ZoomableGroup>
         </ComposableMap>
       </div>
