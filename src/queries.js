@@ -18,7 +18,6 @@ export const createPrediction = (req, res, next) => {
   const { predictions } = req.body;
 
   if (!predictions){
-    console.log("Empty predictions");
     res.status(200)
         .json({
           status: 'success',
@@ -64,7 +63,6 @@ export const createPrediction = (req, res, next) => {
     return t.batch(queries); // all of the queries are to be resolved;
   })
     .then(data => {
-      console.log("success");
         // success, COMMIT was executed
         res.status(200)
         .json({
@@ -90,7 +88,6 @@ export const getPrediction = (req, res, next) => {
     };
 
     data.forEach((row, index, data) => {
-        console.log(row);
         let election_type = row.election_type;
         
         if(!predictions[election_type]){

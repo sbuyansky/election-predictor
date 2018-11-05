@@ -80,6 +80,7 @@ class App extends Component {
             handleLoad={this.handleLoad}
             handlePredictionIdChange={this.handlePredictionIdChange}
             predictionId={predictionsAll.predictionId}
+            electionType={electionType}
           />
           <ElectionHeader
             selectedState={elections[selectedStateName]}

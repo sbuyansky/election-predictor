@@ -111,7 +111,7 @@ class Map extends Component {
   }
 
   render() {
-    const { elections, predictions, handleStateSelect, geography, numDemSeats, partisanIndex } = this.props;
+    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex } = this.props;
 
     return (
       <div style={wrapperStyles}>

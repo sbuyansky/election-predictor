@@ -15,11 +15,8 @@ app.use(function(req, res, next) {
 });
 app.use('/', router);
 
-
-//router.get('/api/predictions', db.getAllPredictions);
 router.get('/api/predictions', db.getPrediction);
 router.post('/api/predictions', db.createPrediction);
-//router.put('/api/predictions/:id', db.updatePrediction);
 
 // TODO Implement Delete
 //router.delete('/api/predictions/:id', db.removepredictions);

@@ -66,6 +66,7 @@ class HouseApp extends Component {
           handleLoad={this.handleLoad}
           handlePredictionIdChange={this.handlePredictionIdChange}
           predictionId={predictionsAll.predictionId}
+          electionType={electionType}
         />
         <Map
           numDemSeats={numDemSeats}
