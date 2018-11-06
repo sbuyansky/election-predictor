@@ -17,54 +17,60 @@ var db = pgp(connectionString);
 export const createPrediction = (req, res, next) => {
   const { predictions } = req.body;
 
-  if (!predictions){
+  if (Date.now() > Date.parse("2018-11-06 9:00:00 PST")) {
+    res.status(400)
+      .send(`Predictions are closed.`);
+    return;
+  }
+
+  if (!predictions) {
     res.status(200)
-        .json({
-          status: 'success',
-          message: `No rows`
-        });
+      .json({
+        status: 'success',
+        message: `No rows`
+      });
     return;
   }
 
   db.tx(t => {
     const queries = [];
     const string_identifier = predictions.predictionId;
-    
+
     // creating a sequence of transaction queries:
     Object.keys(predictions).forEach(electionType => {
-      switch (electionType){
+      switch (electionType) {
         case 'electionsHouse':
           queries.push(t.oneOrNone(sql.predictions.addOrUpdateHouse, {
-            string_identifier : string_identifier,
-            election_type : electionType,
-            state : "house",
-            dem_seats : predictions[electionType]
+            string_identifier: string_identifier,
+            election_type: electionType,
+            state: "house",
+            dem_seats: predictions[electionType]
           }));
-        break;
+          break;
         case 'electionsSenate':
         case 'electionsGovernor':
           Object.keys(predictions[electionType]).forEach(state => {
             const stateElection = predictions[electionType][state];
-            if(stateElection.projectedWinner){
+            if (stateElection.projectedWinner) {
               queries.push(t.oneOrNone(sql.predictions.addOrUpdate, {
-                string_identifier : string_identifier,
-                election_type : electionType,
-                state : state,
-                candidate_name : stateElection.projectedWinner.name,
-                candidate_party : stateElection.projectedWinner.party
+                string_identifier: string_identifier,
+                election_type: electionType,
+                state: state,
+                candidate_name: stateElection.projectedWinner.name,
+                candidate_party: stateElection.projectedWinner.party
               }));
             }
           });
         default:
-        break;
+          break;
       }
     });
     // returning a promise that determines a successful transaction:
     return t.batch(queries); // all of the queries are to be resolved;
   })
     .then(data => {
-        // success, COMMIT was executed
-        res.status(200)
+      // success, COMMIT was executed
+      res.status(200)
         .json({
           status: 'success',
           message: `test message`
@@ -78,23 +84,23 @@ export const createPrediction = (req, res, next) => {
 export const getPrediction = (req, res, next) => {
   const string_identifier = req.query.string_identifier;
 
-  db.any(sql.predictions.get, {string_identifier})
-  .then(data => {
-    let predictions = {
-      electionsHouse : 218,
-      electionsSenate : {},
-      electionsGovernor : {},
-      predictionId : string_identifier
-    };
+  db.any(sql.predictions.get, { string_identifier })
+    .then(data => {
+      let predictions = {
+        electionsHouse: 218,
+        electionsSenate: {},
+        electionsGovernor: {},
+        predictionId: string_identifier
+      };
 
-    data.forEach((row, index, data) => {
+      data.forEach((row, index, data) => {
         let election_type = row.election_type;
-        
-        if(!predictions[election_type]){
+
+        if (!predictions[election_type]) {
           predictions[election_type] = {};
         }
 
-        switch (election_type){
+        switch (election_type) {
           case 'electionsHouse':
             predictions[election_type] = row.dem_seats;
             break;
@@ -102,22 +108,66 @@ export const getPrediction = (req, res, next) => {
           case 'electionsSenate':
           case 'electionsGovernor':
             predictions[election_type][row.state] = {
-              projectedWinner : {
-                name : row.name,
-                party : row.party
+              projectedWinner: {
+                name: row.name,
+                party: row.party
               }
             }
             break;
           default:
             break;
         }
-    });
+      });
 
-    res
-      .status(200)
-      .json({
-        predictions
+      res
+        .status(200)
+        .json({
+          predictions
+        });
+    });
+}
+
+export const getPredictions = (req, res, next) => {
+  const string_identifiers = req.query.string_identifiers;
+  let predictions = [];
+
+  string_identifiers.forEach((string_identifier) => {
+    db.any(sql.predictions.get, { string_identifier })
+      .then(data => {
+        let prediction = {
+          electionsHouse: 218,
+          electionsSenate: {},
+          electionsGovernor: {},
+          predictionId: string_identifier
+        };
+
+        data.forEach((row, index, data) => {
+          let election_type = row.election_type;
+
+          if (!prediction[election_type]) {
+            prediction[election_type] = {};
+          }
+
+          switch (election_type) {
+            case 'electionsHouse':
+              prediction[election_type] = row.dem_seats;
+              break;
+
+            case 'electionsSenate':
+            case 'electionsGovernor':
+              prediction[election_type][row.state] = {
+                projectedWinner: {
+                  name: row.name,
+                  party: row.party
+                }
+              }
+              break;
+            default:
+              break;
+          }
+        });
+
+        predictions.push(prediction);
       });
   });
-
 }

@@ -38,11 +38,10 @@ export default function predictionReducer(state = {}, action) {
     
     case actions.LOAD_DATA_FAIL:
       error = action.error;
-      console.log(error);
       message = `Error loading "${state.predictionId}"`;
 
-      if(error && error.message){
-        message += `: ${error.message}`;
+      if(error && error.response && error.response.data){
+        message += `: ${error.response.data}`;
       }
       else if(error && error.data){
         message += `: ${error.data}`;
@@ -56,14 +55,13 @@ export default function predictionReducer(state = {}, action) {
       return state;
     
     case actions.SAVE_DATA_FAIL:
-      error = action.error;
       message = `Error saving "${state.predictionId}"`;
 
-      if(error && error.message){
-        message += `: ${error.message}`;
+      if(action.error && action.error.response && action.error.response.data){
+        message += `: ${action.error.response.data}`;
       }
-      else if(error && error.data){
-        message += `: ${error.data}`;
+      else if(action.error && action.error.data){
+        message += `: ${action.error.data}`;
       }
 
       toast.error(message);

@@ -12,7 +12,6 @@ export function updatePredictionId(predictionId) {
   return { type: actions.UPDATE_PREDICTION_ID, predictionId };
 }
 
-
 export function saveData(predictions) {
   return {
     type: actions.SAVE_DATA,
