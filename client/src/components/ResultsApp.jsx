@@ -119,6 +119,7 @@ class ResultsApp extends Component {
           'Montana',
           'West Virginia',
           'New Jersey',
+          'Tennessee'
         ]
       }
     });
@@ -163,17 +164,17 @@ class ResultsApp extends Component {
             electionType={electionType}
           />
           <div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label className={"btn btn-light" + (this.state.showCloseRacesOnly ? ' active' : '')}>
-              <input type="radio" name="options" id="option2" autocomplete="off" checked={this.state.showCloseRacesOnly} onClick={() => this.toggleFilter('showCloseRacesOnly')}/> Close Races
-            </label>
-            <label className={"btn btn-light" + (this.state.showDifferencesOnly ? ' active' : '')}>
-              <input type="radio" name="options" id="option3" autocomplete="off" checked={this.state.showDifferencesOnly} onClick={() => this.toggleFilter('showDifferencesOnly')}/> Differences
-            </label>
-            <label className={"btn btn-light" + (!this.state.showCloseRacesOnly && !this.state.showDifferencesOnly ? ' active' : '')}>
-              <input type="radio" name="options" id="option1" autocomplete="off" checked={!this.state.showCloseRacesOnly && !this.state.showDifferencesOnly} onClick={() => this.toggleFilter('showAll')}/> All
-            </label>
-          </div>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label className={"btn btn-light" + (this.state.showCloseRacesOnly ? ' active' : '')}>
+                <input type="radio" name="options" id="option2" autocomplete="off" checked={this.state.showCloseRacesOnly} onClick={() => this.toggleFilter('showCloseRacesOnly')}/> Close Races
+              </label>
+              <label className={"btn btn-light" + (this.state.showDifferencesOnly ? ' active' : '')}>
+                <input type="radio" name="options" id="option3" autocomplete="off" checked={this.state.showDifferencesOnly} onClick={() => this.toggleFilter('showDifferencesOnly')}/> Differences
+              </label>
+              <label className={"btn btn-light" + (!this.state.showCloseRacesOnly && !this.state.showDifferencesOnly ? ' active' : '')}>
+                <input type="radio" name="options" id="option1" autocomplete="off" checked={!this.state.showCloseRacesOnly && !this.state.showDifferencesOnly} onClick={() => this.toggleFilter('showAll')}/> All
+              </label>
+            </div>
           </div>
           <ResultsTable
             predictions={predictions}
