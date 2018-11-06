@@ -35,7 +35,7 @@ export function loadData(string_identifier) {
         params:  {
           string_identifier
         },
-        url: '/predictions'
+        url: '/prediction'
       }
     }
   };

@@ -29,8 +29,8 @@ class Map extends Component {
     const prediction = predictions[stateName];
     if (election != null) {
       let partyColor = '#000';
-      if (prediction && prediction.projectedWinner) {
-        partyColor = Helpers.getPartyColor(prediction.projectedWinner.party);
+      if (prediction) {
+        partyColor = Helpers.getPartyColor(prediction.party);
       }
       return {
         default: {

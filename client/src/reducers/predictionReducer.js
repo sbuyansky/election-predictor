@@ -11,10 +11,7 @@ export default function predictionReducer(state = {}, action) {
           ...state,
           [action.prediction.electionType]: {
             ...state[action.prediction.electionType],
-            [action.prediction.stateName]: {
-              ...state[action.prediction.electionType][action.prediction.stateName],
-              projectedWinner: action.prediction.candidate,
-            },
+            [action.prediction.stateName]: action.prediction.candidate,
           },
         });
 
@@ -32,7 +29,7 @@ export default function predictionReducer(state = {}, action) {
         }
 
     case actions.LOAD_DATA_SUCCESS:
-      state = action.payload.data.predictions;
+      state = action.payload.data.prediction;
       toast.success(`Successfully loaded: ${state.predictionId}`);
       return state;
     

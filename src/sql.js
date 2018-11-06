@@ -20,6 +20,7 @@ module.exports = {
     predictions: {
         addOrUpdate: sql('./sql/UpsertPrediction.sql'),
         addOrUpdateHouse: sql('./sql/UpsertPredictionHouse.sql'),
-        get: sql('./sql/GetPrediction.sql')
+        get: sql('./sql/GetPrediction.sql'),
+        getMany: sql('./sql/GetPredictions.sql'),
     }
 };

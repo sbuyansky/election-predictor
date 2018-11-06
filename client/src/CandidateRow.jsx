@@ -16,7 +16,7 @@ const getCandidateFormat = (candidate, i) => {
 
 const CandidateRow = ({ candidates, handleWinnerSelect, prediction, stateName }) => (
   candidates.map((candidate, i) => {
-    const isWinner = prediction && prediction.projectedWinner && prediction.projectedWinner.name === candidate.name;
+    const isWinner = prediction && prediction.name === candidate.name;
     return (
       isWinner ? (
         <td key={candidate.name} style={{ background: Helpers.getPartyColor(candidate.party), textShadow: 'black 1px 1px 3px', color: 'white', userSelect: 'none' }}>
@@ -48,7 +48,6 @@ CandidateRow.propTypes = {
   candidates: PropTypes.any.isRequired,
   prediction: PropTypes.any,
   handleWinnerSelect: PropTypes.func.isRequired,
-  projectedWinner: PropTypes.any,
   stateName: PropTypes.string.isRequired,
 };
 

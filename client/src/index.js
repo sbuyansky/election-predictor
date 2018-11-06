@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './App';
 import HouseApp from './HouseApp';
+import ResultsApp from './components/ResultsApp';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import configureStore from './store/configureStore';
@@ -49,6 +50,11 @@ ReactDOM.render(
         <Route
           path="/governor"
           render={props => <App {...props} electionType={constants.ELECTION_TYPE_GOVERNOR} />}
+        />
+        <Route
+          path="/results"
+          exact
+          render={props => <ResultsApp {...props} electionType={constants.ELECTION_TYPE_RESULTS} />}
         />
         <Route
           path="/"

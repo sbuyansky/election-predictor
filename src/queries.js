@@ -51,15 +51,13 @@ export const createPrediction = (req, res, next) => {
         case 'electionsGovernor':
           Object.keys(predictions[electionType]).forEach(state => {
             const stateElection = predictions[electionType][state];
-            if (stateElection.projectedWinner) {
-              queries.push(t.oneOrNone(sql.predictions.addOrUpdate, {
-                string_identifier: string_identifier,
-                election_type: electionType,
-                state: state,
-                candidate_name: stateElection.projectedWinner.name,
-                candidate_party: stateElection.projectedWinner.party
-              }));
-            }
+            queries.push(t.oneOrNone(sql.predictions.addOrUpdate, {
+              string_identifier: string_identifier,
+              election_type: electionType,
+              state: state,
+              candidate_name: stateElection.name,
+              candidate_party: stateElection.party
+            }));
           });
         default:
           break;
@@ -86,43 +84,11 @@ export const getPrediction = (req, res, next) => {
 
   db.any(sql.predictions.get, { string_identifier })
     .then(data => {
-      let predictions = {
-        electionsHouse: 218,
-        electionsSenate: {},
-        electionsGovernor: {},
-        predictionId: string_identifier
-      };
-
-      data.forEach((row, index, data) => {
-        let election_type = row.election_type;
-
-        if (!predictions[election_type]) {
-          predictions[election_type] = {};
-        }
-
-        switch (election_type) {
-          case 'electionsHouse':
-            predictions[election_type] = row.dem_seats;
-            break;
-
-          case 'electionsSenate':
-          case 'electionsGovernor':
-            predictions[election_type][row.state] = {
-              projectedWinner: {
-                name: row.name,
-                party: row.party
-              }
-            }
-            break;
-          default:
-            break;
-        }
-      });
-
+      let prediction = buildPredictionFromRows(data);
       res
         .status(200)
         .json({
-          predictions
+          prediction
         });
     });
 }
@@ -130,44 +96,56 @@ export const getPrediction = (req, res, next) => {
 export const getPredictions = (req, res, next) => {
   const string_identifiers = req.query.string_identifiers;
   let predictions = [];
+  
+  console.log(req.query);
 
-  string_identifiers.forEach((string_identifier) => {
-    db.any(sql.predictions.get, { string_identifier })
-      .then(data => {
-        let prediction = {
-          electionsHouse: 218,
-          electionsSenate: {},
-          electionsGovernor: {},
-          predictionId: string_identifier
-        };
-
-        data.forEach((row, index, data) => {
-          let election_type = row.election_type;
-
-          if (!prediction[election_type]) {
-            prediction[election_type] = {};
-          }
-
-          switch (election_type) {
-            case 'electionsHouse':
-              prediction[election_type] = row.dem_seats;
-              break;
-
-            case 'electionsSenate':
-            case 'electionsGovernor':
-              prediction[election_type][row.state] = {
-                projectedWinner: {
-                  name: row.name,
-                  party: row.party
-                }
-              }
-              break;
-            default:
-              break;
-          }
-        });
-
-        predictions.push(prediction);
+  db.any(sql.predictions.getMany, { string_identifiers })
+    .then(data => {
+      string_identifiers.forEach((string_identifier) => {
+        predictions.push(buildPredictionFromRows(data.filter(row => row.string_identifier === string_identifier)));
+      });
+      res
+      .status(200)
+      .json({
+        predictions
       });
   });
+
+}
+
+const buildPredictionFromRows = (rows) => {
+  let prediction = {
+    electionsHouse: 218,
+    electionsSenate: {},
+    electionsGovernor: {},
+    predictionId: ''
+  };
+
+  rows.forEach((row, index, data) => {
+    let election_type = row.election_type;
+
+    if (!prediction[election_type]) {
+      prediction[election_type] = {};
+    }
+
+    prediction.predictionId = row.string_identifier;
+
+    switch (election_type) {
+      case 'electionsHouse':
+        prediction[election_type] = row.dem_seats;
+        break;
+
+      case 'electionsSenate':
+      case 'electionsGovernor':
+        prediction[election_type][row.state] = {
+            name: row.name,
+            party: row.party
+        }
+        break;
+      default:
+        break;
+    }
+  });
+
+  return prediction;
 }

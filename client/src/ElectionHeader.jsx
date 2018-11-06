@@ -45,7 +45,7 @@ const ElectionHeader = ({ selectedStateName, selectedState, selectedStatePredict
           <div className="card-block px-2 d-flex flex-column" style={{ overflow: 'hidden' }}>
             {formatName(candidate.name)}
             <h6 className="text-left" style={{ color: Helpers.getPartyColor(candidate.party) }}>{candidate.party}</h6>
-            {selectedStatePrediction && selectedStatePrediction.projectedWinner && selectedStatePrediction.projectedWinner.name === candidate.name
+            {selectedStatePrediction && selectedStatePrediction.name === candidate.name
               ? (
                 <button type="button" disabled className="btn btn-success mt-auto w-100" style={getButtonStyle(candidate.party)}>
                   <Octicon icon={Octicons.check} /> Selected
