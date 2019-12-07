@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import NavBar from '../NavBar';
 import axios from 'axios';
 import _ from 'lodash';
 import * as predictionActions from '../actions/predictionActions';
+import NavBar from './NavBar';
 import ResultsTable from './ResultsTable';
 import ResultsTableHouse from './ResultsTableHouse';
 import Helpers from '../Helpers';
 import * as constants from '../constants';
 
-import './ResultsApp.css';
+import '../styles/ResultsApp.css';
 
 const client = axios.create({ //all axios can be used, shown in axios documentation
   baseURL: Helpers.getBaseURL()

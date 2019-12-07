@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'rc-slider';
 import Tooltip from 'rc-tooltip';
-import Helpers from './Helpers';
+import Helpers from '../Helpers';
 
-import './HouseSlider.css';
+import '../styles/HouseSlider.css';
 import 'rc-slider/assets/index.css';
 
 const { Handle } = Slider;

@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import App from './App';
-import HouseApp from './HouseApp';
+import App from './components/App';
+import HouseApp from './components/HouseApp';
 import ResultsApp from './components/ResultsApp';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,7 +15,7 @@ import electionsSenate from './data/elections_senatorial.json';
 import electionsGovernor from './data/elections_gubernatorial.json';
 import housePartisanIndex from './data/house_partisan_index.json';
 
-import './index.css';
+import './styles/index.css';
 
 const store = configureStore(
   {

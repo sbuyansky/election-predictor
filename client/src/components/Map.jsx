@@ -8,8 +8,8 @@ import {
   Markers
 } from 'react-simple-maps';
 import PropTypes from 'prop-types';
-import Helpers from './Helpers';
-import * as constants from './constants';
+import Helpers from '../Helpers';
+import * as constants from '../constants';
 
 const wrapperStyles = {
   width: '100%',

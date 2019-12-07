@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import * as constants from './constants';
+import * as constants from '../constants';
 
 const NavBar = ({ handleSave, handleLoad, handlePredictionIdChange, predictionId, electionType }) => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

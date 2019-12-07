@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helpers from './Helpers';
+import Helpers from '../Helpers';
 import CandidateRow from './CandidateRow';
 
-import './ElectionTable.css';
+import '../styles/ElectionTable.css';
 
 const getCandidateRows = (stateName, elections, predictions, handleWinnerSelect) => {
   const candidates = [{}, {}, {}];

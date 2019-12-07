@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Octicon, Octicons } from 'octicons-react';
-import Helpers from './Helpers';
+import Helpers from '../Helpers';
 
 const getCandidateFormat = (candidate, i) => {
   if (!candidate || !candidate.name || !candidate.party) {

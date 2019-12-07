@@ -1,10 +1,10 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
-import './ElectionHeader.css';
+import '../styles/ElectionHeader.css';
 import { Octicon, Octicons } from 'octicons-react';
 import PropTypes from 'prop-types';
-import Helpers from './Helpers';
-import * as Constants from './constants';
+import Helpers from '../Helpers';
+import * as Constants from '../constants';
 
 const getCandidateImg = candidate => `img/candidates/${candidate.name.replace(/\s+/g, '')}.jpg`;
 

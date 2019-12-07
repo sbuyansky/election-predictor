@@ -3,14 +3,14 @@ import { feature } from 'topojson-client';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import geographyObject from '../data/map.json';
 import Map from './Map';
-import geographyObject from './data/map.json';
 import ElectionHeader from './ElectionHeader';
 import ElectionTable from './ElectionTable';
 import NavBar from './NavBar';
-import * as predictionActions from './actions/predictionActions';
+import * as predictionActions from '../actions/predictionActions';
 
-import './App.css';
+import '../styles/App.css';
 
 class App extends Component {
   constructor() {

@@ -5,11 +5,11 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import HouseSlider from './HouseSlider';
 import Map from './Map';
-import geographyObject from './data/map.json';
 import NavBar from './NavBar';
-import * as predictionActions from './actions/predictionActions';
+import geographyObject from '../data/map.json';
+import * as predictionActions from '../actions/predictionActions';
 
-import './App.css';
+import '../styles/App.css';
 
 class HouseApp extends Component {
   constructor() {
