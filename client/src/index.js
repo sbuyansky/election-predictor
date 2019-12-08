@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import App from './components/App';
+import StateApp from './components/StateApp';
 import HouseApp from './components/HouseApp';
 import ResultsApp from './components/ResultsApp';
 import * as serviceWorker from './serviceWorker';
@@ -11,9 +11,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import configureStore from './store/configureStore';
 import * as constants from './constants';
 
-import electionsSenate from './data/elections_senatorial.json';
-import electionsGovernor from './data/elections_gubernatorial.json';
-import housePartisanIndex from './data/house_partisan_index.json';
+import electionsSenate from './data/2018/elections_senatorial.json';
+import electionsGovernor from './data/2018/elections_gubernatorial.json';
+import housePartisanIndex from './data/2018/house_partisan_index.json';
+
+import electionsPrimary from './data/2020/primary_elections.json';
 
 import './styles/index.css';
 
@@ -31,6 +33,7 @@ const store = configureStore(
       [constants.ELECTION_TYPE_HOUSE]: housePartisanIndex.partisan_index,
       [constants.ELECTION_TYPE_SENATE]: electionsSenate,
       [constants.ELECTION_TYPE_GOVERNOR]: electionsGovernor,
+      [constants.ELECTION_TYPE_PRIMARY]: electionsPrimary,
     },
   }
 );
@@ -41,7 +44,7 @@ ReactDOM.render(
       <div>
         <Route
           path="/senate"
-          render={props => <App {...props} electionType={constants.ELECTION_TYPE_SENATE} />}
+          render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_SENATE} />}
         />
         <Route
           path="/house"
@@ -49,7 +52,11 @@ ReactDOM.render(
         />
         <Route
           path="/governor"
-          render={props => <App {...props} electionType={constants.ELECTION_TYPE_GOVERNOR} />}
+          render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_GOVERNOR} />}
+        />
+        <Route
+          path="/primary"
+          render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_PRIMARY} />}
         />
         <Route
           path="/results"
@@ -59,7 +66,7 @@ ReactDOM.render(
         <Route
           path="/"
           exact
-          render={props => <App {...props} electionType={constants.ELECTION_TYPE_SENATE} />}
+          render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_SENATE} />}
         />
       </div>
     </Router>
