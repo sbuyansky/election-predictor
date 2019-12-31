@@ -35,7 +35,7 @@ for state_name in state_names:
     for i in range(0, len(candidates)):
         candidate = {}
         candidate["name"] = candidates[i]
-        candidate["party"] = "Democrat"
+        candidate["party"] = "Democratic"
         elections[state_name]["candidates"].append(candidate)
 
 serialized = json.dumps(elections, sort_keys=True, indent=3)

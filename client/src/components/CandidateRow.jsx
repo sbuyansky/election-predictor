@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Octicon, Octicons } from 'octicons-react';
 import Helpers from '../Helpers';
 
+import '../styles/CandidateRow.css';
+
 const getCandidateFormat = (candidate, i) => {
   if (!candidate || !candidate.name || !candidate.party) {
     return '-';
@@ -14,7 +16,7 @@ const getCandidateFormat = (candidate, i) => {
   return `${candidate.name} (${candidate.party})`;
 };
 
-const CandidateRow = ({ candidates, handleWinnerSelect, prediction, stateName }) => (
+const getCandidateRowWithNames = (candidates, handleWinnerSelect, prediction, stateName) => (
   candidates.map((candidate, i) => {
     const isWinner = prediction && prediction.name === candidate.name;
     return (
@@ -44,11 +46,52 @@ const CandidateRow = ({ candidates, handleWinnerSelect, prediction, stateName })
   })
 );
 
+const getCandidateRowWithImages = (candidates, handleWinnerSelect, prediction, stateName) => (
+  candidates.map((candidate, i) => {
+    const isWinner = prediction && prediction.name === candidate.name;
+    return (
+      isWinner ? (
+        <td key={candidate.name} style={{ background: Helpers.getPartyColor(candidate.party)}}>
+          <div 
+              className="candidateImageContainer"
+              style={{backgroundPosition : Helpers.getCandidateOffsets(candidate.name)}}
+          >
+          </div>
+        </td>
+      )
+        : (
+          <td style={{ cursor: 'pointer', userSelect: 'none' }}>
+            <div
+              className="candidateImageContainer"
+              role="button"
+              tabIndex="0"
+              onMouseDown={() => handleWinnerSelect(candidate, stateName)}
+              onKeyPress={() => handleWinnerSelect(candidate, stateName)}
+              key={candidate.name}
+              style={{backgroundPosition : Helpers.getCandidateOffsets(candidate.name)}}
+            >
+            </div>
+          </td>
+        )
+    );
+  })
+);
+
+const CandidateRow = ({ candidates, handleWinnerSelect, prediction, stateName, useImages }) => {
+  if(useImages){
+    return getCandidateRowWithImages(candidates, handleWinnerSelect, prediction, stateName);
+  }
+  else{
+    return getCandidateRowWithNames(candidates, handleWinnerSelect, prediction, stateName);
+  }
+};
+
 CandidateRow.propTypes = {
   candidates: PropTypes.any.isRequired,
   prediction: PropTypes.any,
   handleWinnerSelect: PropTypes.func.isRequired,
   stateName: PropTypes.string.isRequired,
+  useImages: PropTypes.bool,
 };
 
 export default CandidateRow;

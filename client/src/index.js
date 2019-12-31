@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import StateApp from './components/StateApp';
 import HouseApp from './components/HouseApp';
+import PrimaryApp from './components/PrimaryApp';
 import ResultsApp from './components/ResultsApp';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -25,6 +26,7 @@ const store = configureStore(
     {
       [constants.ELECTION_TYPE_SENATE]: {},
       [constants.ELECTION_TYPE_GOVERNOR]: {},
+      [constants.ELECTION_TYPE_PRIMARY]: {},
       [constants.ELECTION_TYPE_HOUSE]: 218,
       predictionId: ''
     },
@@ -56,7 +58,7 @@ ReactDOM.render(
         />
         <Route
           path="/primary"
-          render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_PRIMARY} />}
+          render={props => <PrimaryApp {...props} electionType={constants.ELECTION_TYPE_PRIMARY} />}
         />
         <Route
           path="/results"

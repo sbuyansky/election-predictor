@@ -1,0 +1,14 @@
+.candidateNameContainer{
+    margin: 2px;
+}
+
+.candidateImageContainer{
+    background-image: url('/img/candidates/2020/candidates.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 0px auto;
+}

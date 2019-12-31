@@ -1,7 +1,13 @@
+.electionTable{
+  margin: 0px auto
+}
+
 .electionTable td{
   padding:0px !important;
 }
 
-.nameContainer{
-  margin: 2px;
+.stateHeader {
+  background: #222;
+  text-shadow: black 1px 1px 3px;
+  color: white;
 }

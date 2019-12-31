@@ -40,10 +40,10 @@ const ElectionTable = ({ elections, handleWinnerSelect, predictions }) => (
   <table className="table table-sm table-striped electionTable" style={{ margin: '0px auto' }}>
     <thead>
       <tr>
-        <th scope="col" style={{ background: '#222', textShadow: 'black 1px 1px 3px', color: 'white' }}>State</th>
-        <th scope="col" style={{ background: Helpers.getPartyColor('Democratic'), textShadow: 'black 1px 1px 3px', color: 'white' }}>Democratic</th>
-        <th scope="col" style={{ background: Helpers.getPartyColor('Republican'), textShadow: 'black 1px 1px 3px', color: 'white' }}>Republican</th>
-        <th scope="col" style={{ background: Helpers.getPartyColor('Independent'), textShadow: 'black 1px 1px 3px', color: 'white' }}>Other (Party)</th>
+        <th scope="col" className="stateHeader">State</th>
+        <th scope="col" className="stateHeader" style={{ background: Helpers.getPartyColor('Democratic')}}>Democratic</th>
+        <th scope="col" className="stateHeader" style={{ background: Helpers.getPartyColor('Republican')}}>Republican</th>
+        <th scope="col" className="stateHeader" style={{ background: Helpers.getPartyColor('Independent')}}>Other (Party)</th>
       </tr>
     </thead>
     <tbody>

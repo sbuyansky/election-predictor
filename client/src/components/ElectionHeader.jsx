@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Helpers from '../Helpers';
 import * as Constants from '../constants';
 
-const getCandidateImg = candidate => `img/candidates/${candidate.name.replace(/\s+/g, '')}.jpg`;
+const getCandidateImg = candidate => `img/candidates/2018/${candidate.name.replace(/\s+/g, '')}.jpg`;
 
 const getCardStyle = candidate => `card flex-row flex-wrap card-${candidate.party}`;
 

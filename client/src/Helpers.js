@@ -60,6 +60,10 @@ class Helpers {
         return '';
     }
   };
+
+  getCandidateOffsets = (name) => {
+    return `0 ${constants.PRIMARY_CANDIDATE_OFFSETS[name] * 100 / 46}%`;
+  };
 }
 
 export default new Helpers();
