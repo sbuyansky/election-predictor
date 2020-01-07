@@ -115,15 +115,56 @@ class Map extends Component {
 
   render() {
     const { elections, handleStateSelect, geography, numDemSeats, partisanIndex, electionType } = this.props;
-    const markers = 
-      electionType === constants.ELECTION_TYPE_SENATE ?
-        [
-          {
-            coordinates: [ -94.6859, 46.7296 ] ,
-            name : 'Minnesota Special',
-          }
-        ] : null;
+    let markers = null;
 
+    if(electionType === constants.ELECTION_TYPE_SENATE){
+      markers = [
+        {
+          coordinates: [ -94.6859, 46.7296 ] ,
+          name : 'Minnesota Special',
+        }
+      ];
+    }
+    else if(electionType === constants.ELECTION_TYPE_PRIMARY){
+      markers = [
+        { 
+          coordinates: [50, -8],
+          name: 'Vermont'
+        },
+        { 
+          coordinates: [34, 2],
+          name: 'New Hampshire'
+        },
+        { 
+          coordinates: [30, -1],
+          name: 'Massachusetts'
+        },
+        { 
+          coordinates: [28, 2],
+          name: 'Rhode Island'
+        },
+        { 
+          coordinates: [35, 10],
+          name: 'Connecticut'
+        },
+        { 
+          coordinates: [34, 1],
+          name: 'New Jersey'
+        },
+        { 
+          coordinates: [33, 0],
+          name: 'Delaware'
+        },
+        { 
+          coordinates: [47, 10],
+          name: 'Maryland'
+        },
+        { 
+          coordinates: [49, 21],
+          name: 'Washington DC'
+        }
+      ];
+    }
 
     return (
       <div style={wrapperStyles}>

@@ -4,7 +4,7 @@ import '../styles/ElectionHeader.css';
 import { Octicon, Octicons } from 'octicons-react';
 import PropTypes from 'prop-types';
 import Helpers from '../Helpers';
-import * as Constants from '../constants';
+import * as constants from '../constants';
 
 const getCandidateImg = candidate => `img/candidates/2018/${candidate.name.replace(/\s+/g, '')}.jpg`;
 
@@ -31,10 +31,10 @@ const formatName = (name) => {
   );
 };
 
-const ElectionHeader = ({ selectedStateName, selectedState, selectedStatePrediction, handleWinnerSelect, electionType }) => (
+const GeneralElectionHeader = ({ selectedStateName, selectedState, selectedStatePrediction, handleWinnerSelect, electionType }) => (
   <div className="row">
     <h1 className="display-4 font-weight-normal col-12 text-center">
-      {electionType === Constants.ELECTION_TYPE_SENATE ? "Senate" : "Governor"} - {selectedStateName} 
+      {electionType === constants.ELECTION_TYPE_SENATE ? "Senate" : "Governor"} - {selectedStateName} 
     </h1>
     <CSSTransitionGroup className="d-flex justify-content-center col-12" transitionName="example" transitionEnterTimeout={500} transitionLeave={false}>
       {selectedState && selectedState.candidates && selectedState.candidates.map(candidate => (
@@ -59,6 +59,17 @@ const ElectionHeader = ({ selectedStateName, selectedState, selectedStatePredict
     </CSSTransitionGroup>
   </div>
 );
+
+const ElectionHeader = (props) => {
+  const { electionType } = props; 
+
+  if (electionType === constants.ELECTION_TYPE_PRIMARY){
+    return null;
+  }
+  else{
+    return GeneralElectionHeader(props);
+  }
+}
 
 ElectionHeader.propTypes = {
   selectedStateName: PropTypes.string.isRequired,

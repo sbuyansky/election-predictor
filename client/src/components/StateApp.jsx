@@ -101,6 +101,7 @@ class App extends Component {
             predictions={predictions}
             handleWinnerSelect={this.handleWinnerSelect}
             selectedStateName={selectedStateName}
+            electionType={electionType}
           />
         </div>
       ) : null

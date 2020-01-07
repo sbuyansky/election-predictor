@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Helpers from '../Helpers';
 import CandidateRow from './CandidateRow';
 
+import * as constants from '../constants';
+
 import '../styles/ElectionTable.css';
 
 const getCandidateRows = (stateName, elections, predictions, handleWinnerSelect) => {
@@ -36,7 +38,7 @@ const getCandidateRows = (stateName, elections, predictions, handleWinnerSelect)
   );
 };
 
-const ElectionTable = ({ elections, handleWinnerSelect, predictions }) => (
+const GeneralElectionTable = ({ elections, handleWinnerSelect, predictions }) => (
   <table className="table table-sm table-striped electionTable" style={{ margin: '0px auto' }}>
     <thead>
       <tr>
@@ -56,6 +58,54 @@ const ElectionTable = ({ elections, handleWinnerSelect, predictions }) => (
     </tbody>
   </table>
 );
+
+const PrimaryTable = ({ elections, handleWinnerSelect, predictions }) => {
+  if(!elections){
+    return null;
+  }
+
+  return (
+  <table className="table table-sm table-striped electionTable">
+    <thead>
+      <tr>
+        <th scope="col" className="stateHeader">State</th>
+        {elections["Alaska"].candidates.map(candidate => {
+          console.log(candidate);
+          return (
+          <th key={candidate.name} scope="col" className="stateHeader" style={{ background: Helpers.getPartyColor('Independent')}}>{candidate.name.split(" ")[1]}</th>
+        )})}
+      </tr>
+    </thead>
+    <tbody>
+      {Object.keys(elections).filter(key => key !== 'elections').sort().map(stateName => (
+        <tr key={stateName}>
+          <td>{stateName}</td>
+          <CandidateRow
+            key={stateName}
+            prediction={predictions[stateName]}
+            candidates={elections[stateName].candidates}
+            handleWinnerSelect={handleWinnerSelect}
+            stateName={stateName}
+            useImages={true}
+          />
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)};
+
+const ElectionTable = (props) => {
+  const { electionType } = props;
+
+  if (electionType === constants.ELECTION_TYPE_PRIMARY){
+    return PrimaryTable(props);
+  }
+  else{
+    return GeneralElectionTable(props);
+  }
+
+};
+
 
 ElectionTable.propTypes = {
   elections: PropTypes.any.isRequired,
