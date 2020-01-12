@@ -145,7 +145,6 @@ class ResultsApp extends Component {
     const electionTypes = [constants.ELECTION_TYPE_GOVERNOR, constants.ELECTION_TYPE_SENATE];
     electionTypes.forEach(electionType => {
       filteredElections[electionType] = Object.keys(data[electionType]);
-      console.log(filteredElections);
 
       if(this.state.showCloseRacesOnly){
         filteredElections[electionType] = _.intersection(filteredElections[electionType], this.state.closeRaces[electionType]);

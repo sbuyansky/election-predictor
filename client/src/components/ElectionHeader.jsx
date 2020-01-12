@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 import Helpers from '../Helpers';
 import * as constants from '../constants';
 
-const getCandidateImg = candidate => `img/candidates/2018/${candidate.name.replace(/\s+/g, '')}.jpg`;
-
 const getCardStyle = candidate => `card flex-row flex-wrap card-${candidate.party}`;
 
 const getButtonStyle = party => ({
@@ -40,7 +38,7 @@ const GeneralElectionHeader = ({ selectedStateName, selectedState, selectedState
       {selectedState && selectedState.candidates && selectedState.candidates.map(candidate => (
         <div key={candidate.name} className={getCardStyle(candidate)} style={{ minWidth: '250px', margin: '0px 25px 0px 25px', float: 'left' }}>
           <div className="Card-header border-0">
-            <img src={getCandidateImg(candidate)} style={{ width: '100px', height: '125px' }} alt="Candidate" onError={(e) => { e.target.onerror = null; e.target.src = 'img/candidates/default.jpg'; }} />
+            <img src={Helpers.getCandidateImg(candidate)} style={{ width: '100px', height: '125px' }} alt="Candidate" onError={(e) => { e.target.onerror = null; e.target.src = 'img/candidates/default.jpg'; }} />
           </div>
           <div className="card-block px-2 d-flex flex-column" style={{ overflow: 'hidden' }}>
             {formatName(candidate.name)}
@@ -60,11 +58,34 @@ const GeneralElectionHeader = ({ selectedStateName, selectedState, selectedState
   </div>
 );
 
+const PrimaryElectionHeader = ({selectedState, handleWinnerSelect, selectedCandidate}) => {
+  return (
+  <div className="row">
+    <h1 className="display-4 font-weight-normal col-12 text-center">
+      2020 Democratic Primary
+    </h1>
+    <h4> Select a candidate to predict for: </h4>
+    <div style={{display: "flex", justifyContent: "space-between", width: "100%"}}>
+      {selectedState.candidates.map((candidate) =>(
+        <div onClick={() => handleWinnerSelect(candidate, null)} style={{border: (selectedCandidate != null && selectedCandidate.name === candidate.name) ? "1px black solid" : ""}}>
+          <h5>{candidate.name.split(" ")[1]}</h5>
+          <div 
+          className="candidateImageContainer"
+          style={{backgroundPosition : Helpers.getCandidateOffsets(candidate.name), }}
+          >
+          </div>
+        </div>
+      )
+      )}
+    </div>
+  </div>
+)};
+
 const ElectionHeader = (props) => {
   const { electionType } = props; 
 
   if (electionType === constants.ELECTION_TYPE_PRIMARY){
-    return null;
+    return PrimaryElectionHeader(props);
   }
   else{
     return GeneralElectionHeader(props);

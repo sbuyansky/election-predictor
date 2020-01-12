@@ -22,7 +22,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -31,10 +31,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -55,10 +51,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -86,7 +78,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -95,10 +87,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -119,10 +107,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -150,7 +134,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -159,10 +143,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -183,10 +163,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -214,7 +190,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -223,10 +199,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -247,10 +219,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -278,7 +246,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -287,10 +255,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -311,10 +275,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -342,7 +302,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -351,10 +311,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -375,10 +331,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -406,7 +358,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -415,10 +367,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -439,10 +387,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -470,7 +414,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -479,10 +423,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -503,10 +443,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -534,7 +470,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -543,10 +479,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -568,14 +500,10 @@
          {
             "name": "Michael Bennet",
             "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
-            "party": "Democratic"
          }
       ]
    },
-   "District of Columbia": {
+   "Washington DC": {
       "candidates": [
          {
             "name": "Joe Biden",
@@ -598,7 +526,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -607,10 +535,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -631,10 +555,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -662,7 +582,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -671,10 +591,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -695,10 +611,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -726,7 +638,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -735,10 +647,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -759,10 +667,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -790,7 +694,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -799,10 +703,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -823,10 +723,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -854,7 +750,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -863,10 +759,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -887,10 +779,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -918,7 +806,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -927,10 +815,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -951,10 +835,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -982,7 +862,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -991,10 +871,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1015,10 +891,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1046,7 +918,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1055,10 +927,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1079,10 +947,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1110,7 +974,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1119,10 +983,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1143,10 +1003,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1174,7 +1030,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1183,10 +1039,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1207,10 +1059,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1238,7 +1086,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1247,10 +1095,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1271,10 +1115,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1302,7 +1142,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1311,10 +1151,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1335,10 +1171,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1366,7 +1198,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1375,10 +1207,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1399,10 +1227,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1430,7 +1254,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1439,10 +1263,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1463,10 +1283,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1494,7 +1310,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1503,10 +1319,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1527,10 +1339,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1558,7 +1366,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1567,10 +1375,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1591,10 +1395,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1622,7 +1422,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1631,10 +1431,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1655,10 +1451,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1686,7 +1478,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1695,10 +1487,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1719,10 +1507,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1750,7 +1534,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1759,10 +1543,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1783,10 +1563,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1814,7 +1590,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1823,10 +1599,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1847,10 +1619,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1878,7 +1646,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1887,10 +1655,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1911,10 +1675,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -1942,7 +1702,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -1951,10 +1711,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -1975,10 +1731,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2006,7 +1758,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2015,10 +1767,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2039,10 +1787,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2070,7 +1814,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2079,10 +1823,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2103,10 +1843,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2134,7 +1870,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2143,10 +1879,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2167,10 +1899,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2198,7 +1926,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2207,10 +1935,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2231,10 +1955,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2262,7 +1982,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2271,10 +1991,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2295,10 +2011,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2326,7 +2038,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2335,10 +2047,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2359,10 +2067,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2390,7 +2094,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2399,10 +2103,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2423,10 +2123,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2454,7 +2150,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2463,10 +2159,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2487,10 +2179,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2518,7 +2206,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2527,10 +2215,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2551,10 +2235,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2582,7 +2262,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2591,10 +2271,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2615,10 +2291,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2646,7 +2318,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2655,10 +2327,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2679,10 +2347,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2710,7 +2374,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2719,10 +2383,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2743,10 +2403,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2774,7 +2430,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2783,10 +2439,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2807,10 +2459,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2838,7 +2486,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2847,10 +2495,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2871,10 +2515,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2902,7 +2542,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2911,10 +2551,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2935,10 +2571,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -2966,7 +2598,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -2975,10 +2607,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -2999,10 +2627,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3030,7 +2654,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3039,10 +2663,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3063,10 +2683,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3094,7 +2710,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3103,10 +2719,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3127,10 +2739,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3158,7 +2766,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3167,10 +2775,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3191,10 +2795,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3222,7 +2822,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3231,10 +2831,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3255,10 +2851,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3286,7 +2878,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3295,10 +2887,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3319,10 +2907,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3350,7 +2934,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3359,10 +2943,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3383,10 +2963,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3414,7 +2990,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3423,10 +2999,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3447,10 +3019,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3478,7 +3046,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3487,10 +3055,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3511,10 +3075,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3542,7 +3102,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3551,10 +3111,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3575,10 +3131,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]
@@ -3606,7 +3158,7 @@
             "party": "Democratic"
          },
          {
-            "name": "Michael Bloomberg",
+            "name": "Mike Bloomberg",
             "party": "Democratic"
          },
          {
@@ -3615,10 +3167,6 @@
          },
          {
             "name": "Cory Booker",
-            "party": "Democratic"
-         },
-         {
-            "name": "Juli\u00e1n Castro",
             "party": "Democratic"
          },
          {
@@ -3639,10 +3187,6 @@
          },
          {
             "name": "Michael Bennet",
-            "party": "Democratic"
-         },
-         {
-            "name": "Marianne Williamson",
             "party": "Democratic"
          }
       ]

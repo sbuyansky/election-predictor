@@ -11,6 +11,7 @@ import NavBar from './NavBar';
 import * as predictionActions from '../actions/predictionActions';
 
 import '../styles/App.css';
+import * as constants from '../constants';
 
 class App extends Component {
   constructor() {
@@ -39,7 +40,15 @@ class App extends Component {
   }
 
   handleStateSelect(stateName) {
-    this.setState({ selectedStateName: stateName });
+    const { electionType } = this.props;
+    let { selectedCandidate } = this.state;
+
+    if(electionType === constants.ELECTION_TYPE_PRIMARY && selectedCandidate){
+      this.handleWinnerSelect(selectedCandidate, stateName)
+    }
+    else{
+      this.setState({ selectedStateName: stateName });
+    }
   }
 
   handleWinnerSelect(candidate, stateName) {
@@ -47,7 +56,12 @@ class App extends Component {
     if (!candidate || !candidate.name || !candidate.party) {
       return;
     }
-    actions.predictElection({ candidate, stateName, electionType });
+    if(stateName){
+      actions.predictElection({ candidate, stateName, electionType });
+    }
+    else{
+      this.setState({ selectedCandidate: candidate });
+    }
   }
 
   handleSave() {
@@ -67,7 +81,7 @@ class App extends Component {
 
   render() {
     const { data, predictionsAll, electionType } = this.props;
-    const { selectedStateName, geographyPaths } = this.state;
+    const { selectedStateName, geographyPaths, selectedCandidate } = this.state;
 
     const elections = data[electionType];
     const predictions = predictionsAll[electionType];
@@ -87,6 +101,7 @@ class App extends Component {
             selectedStatePrediction={predictions[selectedStateName]}
             selectedStateName={selectedStateName}
             handleWinnerSelect={this.handleWinnerSelect}
+            selectedCandidate={selectedCandidate}
             electionType={electionType}
           />
           <Map

@@ -11,6 +11,8 @@ import PropTypes from 'prop-types';
 import Helpers from '../Helpers';
 import * as constants from '../constants';
 
+import '../styles/Map.css';
+
 const wrapperStyles = {
   width: '100%',
   maxWidth: 980,
@@ -23,31 +25,38 @@ class Map extends Component {
     this.props = props;
   }
 
-  getStyleState(stateName) {
-    const { elections, predictions } = this.props;
+  getStyleState(stateName, isMarker) {
+    const { elections, predictions, electionType } = this.props;
     const election = elections[stateName];
     const prediction = predictions[stateName];
+
     if (election != null) {
-      let partyColor = '#000';
+      let stateFill = "rgb(33, 37, 41)";
+
       if (prediction) {
-        partyColor = Helpers.getPartyColor(prediction.party);
+        if(electionType === constants.ELECTION_TYPE_PRIMARY){
+          stateFill = `url('#${stateName}Pattern${isMarker ? 'Marker' : ''}')`
+        }
+        else{
+          stateFill = Helpers.getPartyColor(prediction.party);
+        }
       }
       return {
         default: {
-          fill: partyColor,
-          stroke: '#EEE',
+          fill: stateFill,
+          stroke: '#FFF',
           strokeWidth: 2,
           outline: 'none',
         },
         hover: {
-          fill: partyColor,
+          fill: stateFill,
           opacity: 0.5,
           stroke: '#EEE',
           strokeWidth: 2,
           outline: 'none',
         },
         pressed: {
-          fill: partyColor,
+          fill: stateFill,
           stroke: '#EEE',
           strokeWidth: 2,
           outline: 'none',
@@ -114,7 +123,7 @@ class Map extends Component {
   }
 
   render() {
-    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex, electionType } = this.props;
+    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex, electionType, predictions } = this.props;
     let markers = null;
 
     if(electionType === constants.ELECTION_TYPE_SENATE){
@@ -128,39 +137,39 @@ class Map extends Component {
     else if(electionType === constants.ELECTION_TYPE_PRIMARY){
       markers = [
         { 
-          coordinates: [50, -8],
+          coordinates: [-67.1, 43],
           name: 'Vermont'
         },
         { 
-          coordinates: [34, 2],
+          coordinates: [-67.8, 41],
           name: 'New Hampshire'
         },
         { 
-          coordinates: [30, -1],
+          coordinates: [-68.5, 39],
           name: 'Massachusetts'
         },
         { 
-          coordinates: [28, 2],
+          coordinates: [-69.2, 37],
           name: 'Rhode Island'
         },
         { 
-          coordinates: [35, 10],
+          coordinates: [-69.9, 35],
           name: 'Connecticut'
         },
         { 
-          coordinates: [34, 1],
+          coordinates: [-70.6, 33],
           name: 'New Jersey'
         },
         { 
-          coordinates: [33, 0],
+          coordinates: [-71.2, 31],
           name: 'Delaware'
         },
         { 
-          coordinates: [47, 10],
+          coordinates: [-71.8, 29],
           name: 'Maryland'
         },
         { 
-          coordinates: [49, 21],
+          coordinates: [-72.4, 27],
           name: 'Washington DC'
         }
       ];
@@ -168,7 +177,7 @@ class Map extends Component {
 
     return (
       <div style={wrapperStyles}>
-        <ComposableMap
+       <ComposableMap
           projection="albersUsa"
           projectionConfig={{
             scale: 1000,
@@ -179,6 +188,29 @@ class Map extends Component {
             width: '100%',
             height: 'auto',
           }}
+          defs={
+            <>
+            {
+              Object.keys(constants.STATE_VIEWBOXES).map((state) =>
+              (
+                <pattern id={`${state}Pattern`}  width="1" height="1">
+                  <image preserveAspectRatio="xMidYMid slice" xlinkHref={`${Helpers.getCandidateImg(predictions[state])}`} x="0" y="0" width={constants.STATE_VIEWBOXES[state].width} height={constants.STATE_VIEWBOXES[state].height}/>
+                </pattern>
+              )
+              )
+            }
+            {
+              /* Marker Patterns */
+              markers.map((marker) =>
+                (
+                  <pattern id={`${marker.name}PatternMarker`}  width="1" height="1">
+                    <image preserveAspectRatio="xMidYMid slice" xlinkHref={`${Helpers.getCandidateImg(predictions[marker.name])}`} x="0" y="0" width="30" height="30"/>
+                  </pattern>
+                )
+              )
+            }
+            </>
+          }
         >
           <ZoomableGroup center={[0, 20]} disablePanning>
             <Geographies geography={geography} disableOptimization>
@@ -188,6 +220,7 @@ class Map extends Component {
                   geography={geographyPart}
                   cacheId={`geography-${geographyPart.properties.AFFGEOID}`}
                   projection={projection}
+                  id={`${geographyPart.properties.NAME}`}
                   onClick={elections && elections[geographyPart.properties.NAME] != null ? () => handleStateSelect(geographyPart.properties.NAME) : null }
                   style={elections !== null ? this.getStyleState(geographyPart.properties.NAME) : Map.getStyleHouse(geographyPart.properties.GEOID, numDemSeats, partisanIndex)}
                 />
@@ -198,14 +231,15 @@ class Map extends Component {
                 <Marker
                   key={marker.name}
                   marker={marker}
-                  style={this.getStyleState(marker.name)}
                   onClick={elections && elections[marker.name] != null ? () => handleStateSelect(marker.name) : null}
+                  style={this.getStyleState(marker.name, true)}
                   >
                   <circle
                       cx={0}
                       cy={0}
                       r={15}
                     />
+                  <text fontSize={11} x={17} className="smallStateLabel" style={{fill:"black"}}>{marker.name}</text>
                 </Marker>
                 ))
               }

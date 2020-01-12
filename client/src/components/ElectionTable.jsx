@@ -69,8 +69,7 @@ const PrimaryTable = ({ elections, handleWinnerSelect, predictions }) => {
     <thead>
       <tr>
         <th scope="col" className="stateHeader">State</th>
-        {elections["Alaska"].candidates.map(candidate => {
-          console.log(candidate);
+        {elections[Object.keys(elections)[0]].candidates.map(candidate => {
           return (
           <th key={candidate.name} scope="col" className="stateHeader" style={{ background: Helpers.getPartyColor('Independent')}}>{candidate.name.split(" ")[1]}</th>
         )})}
@@ -109,7 +108,7 @@ const ElectionTable = (props) => {
 
 ElectionTable.propTypes = {
   elections: PropTypes.any.isRequired,
-  predictions: PropTypes.any.isRequired,
+  predictions: PropTypes.any,
   handleWinnerSelect: PropTypes.func.isRequired,
 };
 
