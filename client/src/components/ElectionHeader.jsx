@@ -1,10 +1,11 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
-import '../styles/ElectionHeader.css';
 import { Octicon, Octicons } from 'octicons-react';
 import PropTypes from 'prop-types';
 import Helpers from '../Helpers';
 import * as constants from '../constants';
+
+import '../styles/ElectionHeader.css';
 
 const getCardStyle = candidate => `card flex-row flex-wrap card-${candidate.party}`;
 
@@ -67,7 +68,7 @@ const PrimaryElectionHeader = ({selectedState, handleWinnerSelect, selectedCandi
     <h4> Select a candidate to predict for: </h4>
     <div style={{display: "flex", justifyContent: "space-between", width: "100%"}}>
       {selectedState.candidates.map((candidate) =>(
-        <div onClick={() => handleWinnerSelect(candidate, null)} style={{border: (selectedCandidate != null && selectedCandidate.name === candidate.name) ? "1px black solid" : ""}}>
+        <div onClick={() => handleWinnerSelect(candidate, null)}  className={(selectedCandidate != null && selectedCandidate.name === candidate.name) ? "candidate-button-selected" : "candidate-button"}>
           <h5>{candidate.name.split(" ")[1]}</h5>
           <div 
           className="candidateImageContainer"

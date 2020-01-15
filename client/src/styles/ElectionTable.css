@@ -4,10 +4,15 @@
 
 .electionTable td{
   padding:0px !important;
+  vertical-align: middle !important;
 }
 
 .stateHeader {
   background: #222;
   text-shadow: black 1px 1px 3px;
   color: white;
+}
+
+th.stateHeader{
+  min-width: 85px;
 }

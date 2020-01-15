@@ -10,6 +10,9 @@ const NavBar = ({ handleSave, handleLoad, handlePredictionIdChange, predictionId
 
     <div className=" navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
+        <li className={electionType === constants.ELECTION_TYPE_PRIMARY ? "nav-item active" : "nav-item"}>
+          <Link className="nav-link" to="/primary">Primary</Link>
+        </li>
         <li className={electionType === constants.ELECTION_TYPE_SENATE ? "nav-item active" : "nav-item"}>
           <Link className="nav-link" to="/senate">Senate</Link>
         </li>

@@ -171,6 +171,34 @@ class Map extends Component {
         { 
           coordinates: [-72.4, 27],
           name: 'Washington DC'
+        },        
+        { 
+          coordinates: [-72.9, 25],
+          name: 'U.S. Virgin Islands'
+        },        
+        { 
+          coordinates: [-73.4, 23],
+          name: 'Puerto Rico'
+        },
+        { 
+          coordinates: [-127.8,32.0],
+          name: 'American Samoa'
+        },
+        { 
+          coordinates: [-126.9,30.0],
+          name: 'Northern Mariana Islands'
+        },
+        { 
+          coordinates: [-126.1,28.0],
+          name: 'Democrats Abroad'
+        },
+        { 
+          coordinates: [-125.3,26.0],
+          name: 'Guam'
+        },
+        { 
+          coordinates: [-124.6, 24.0],
+          name: 'Hawaii'
         }
       ];
     }

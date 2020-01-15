@@ -65,32 +65,34 @@ const PrimaryTable = ({ elections, handleWinnerSelect, predictions }) => {
   }
 
   return (
-  <table className="table table-sm table-striped electionTable">
-    <thead>
-      <tr>
-        <th scope="col" className="stateHeader">State</th>
-        {elections[Object.keys(elections)[0]].candidates.map(candidate => {
-          return (
-          <th key={candidate.name} scope="col" className="stateHeader" style={{ background: Helpers.getPartyColor('Independent')}}>{candidate.name.split(" ")[1]}</th>
-        )})}
-      </tr>
-    </thead>
-    <tbody>
-      {Object.keys(elections).filter(key => key !== 'elections').sort().map(stateName => (
-        <tr key={stateName}>
-          <td>{stateName}</td>
-          <CandidateRow
-            key={stateName}
-            prediction={predictions[stateName]}
-            candidates={elections[stateName].candidates}
-            handleWinnerSelect={handleWinnerSelect}
-            stateName={stateName}
-            useImages={true}
-          />
+  <div>
+    <table className="table table-sm table-striped electionTable">
+      <thead>
+        <tr>
+          <th scope="col" className="stateHeader">State</th>
+          {elections[Object.keys(elections)[0]].candidates.map(candidate => {
+            return (
+            <th key={candidate.name} scope="col" className="stateHeader" style={{ background: Helpers.getPartyColor('Independent')}}>{candidate.name.split(" ")[1]}</th>
+          )})}
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {Object.keys(elections).filter(key => key !== 'elections').sort().map(stateName => (
+          <tr key={stateName}>
+            <td>{stateName}</td>
+            <CandidateRow
+              key={stateName}
+              prediction={predictions[stateName]}
+              candidates={elections[stateName].candidates}
+              handleWinnerSelect={handleWinnerSelect}
+              stateName={stateName}
+              useImages={true}
+            />
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 )};
 
 const ElectionTable = (props) => {

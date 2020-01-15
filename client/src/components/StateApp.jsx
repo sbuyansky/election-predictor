@@ -7,6 +7,7 @@ import geographyObject from '../data/map.json';
 import Map from './Map';
 import ElectionHeader from './ElectionHeader';
 import ElectionTable from './ElectionTable';
+import DatedElectionTables from './DatedElectionTables';
 import NavBar from './NavBar';
 import * as predictionActions from '../actions/predictionActions';
 
@@ -111,13 +112,24 @@ class App extends Component {
             handleStateSelect={this.handleStateSelect}
             electionType={electionType}
           />
-          <ElectionTable
+          {electionType !== constants.ELECTION_TYPE_PRIMARY && 
+            <ElectionTable
             elections={elections}
             predictions={predictions}
             handleWinnerSelect={this.handleWinnerSelect}
             selectedStateName={selectedStateName}
             electionType={electionType}
           />
+          }
+          {electionType === constants.ELECTION_TYPE_PRIMARY && 
+          <DatedElectionTables
+            elections={elections}
+            predictions={predictions}
+            handleWinnerSelect={this.handleWinnerSelect}
+            selectedStateName={selectedStateName}
+            electionType={electionType}
+          />
+          }
         </div>
       ) : null
     );

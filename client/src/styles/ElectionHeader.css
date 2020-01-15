@@ -1,37 +1,49 @@
 .example-enter {
     opacity: 0.01;
-  }
-  
-  .example-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-  
-  .example-leave {
-    opacity: 1;
-  }
-  
-  .example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }
+}
 
-  .card-Democratic {
-    border: 3px solid #415695 !important;
-  }
-  .card-Republican {
-    border: 3px solid #bd3d3c !important;
-  }
-  .card-Independent {
-    border: 3px solid #666666 !important;
-  }
-  .card-Libertarian {
-    border: 3px solid #C8CF00 !important;
-  }
-  .card-Green {
-    border: 3px solid #17C70E !important;
-  }
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
 
-  img{
-      padding: 5px;
-  }
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.card-Democratic {
+  border: 3px solid #415695 !important;
+}
+.card-Republican {
+  border: 3px solid #bd3d3c !important;
+}
+.card-Independent {
+  border: 3px solid #666666 !important;
+}
+.card-Libertarian {
+  border: 3px solid #C8CF00 !important;
+}
+.card-Green {
+  border: 3px solid #17C70E !important;
+}
+
+.candidate-button, .candidate-button-selected{
+  border: #415695 solid 3px;
+  border-radius : 5px;
+  padding: 5px;
+}
+
+.candidate-button-selected{
+  background: #415695;
+  text-shadow:black 1px 1px 3px;
+  color:white;
+}
+
+img{
+    padding: 5px;
+}
