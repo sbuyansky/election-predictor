@@ -17,11 +17,11 @@ var db = pgp(connectionString);
 export const createPrediction = (req, res, next) => {
   const { predictions } = req.body;
 
-  if (Date.now() > Date.parse("2018-11-06 9:00:00 PST")) {
+  /*if (Date.now() > Date.parse("2018-11-06 9:00:00 PST")) {
     res.status(400)
       .send(`Predictions are closed.`);
     return;
-  }
+  }*/
 
   if (!predictions) {
     res.status(200)
@@ -49,6 +49,7 @@ export const createPrediction = (req, res, next) => {
           break;
         case 'electionsSenate':
         case 'electionsGovernor':
+        case 'electionsPrimary':
           Object.keys(predictions[electionType]).forEach(state => {
             const stateElection = predictions[electionType][state];
             queries.push(t.oneOrNone(sql.predictions.addOrUpdate, {
@@ -118,6 +119,7 @@ const buildPredictionFromRows = (rows) => {
     electionsHouse: 218,
     electionsSenate: {},
     electionsGovernor: {},
+    electionsPrimary: {},
     predictionId: ''
   };
 
@@ -137,6 +139,7 @@ const buildPredictionFromRows = (rows) => {
 
       case 'electionsSenate':
       case 'electionsGovernor':
+      case 'electionsPrimary':
         prediction[election_type][row.state] = {
             name: row.name,
             party: row.party
