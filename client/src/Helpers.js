@@ -65,12 +65,12 @@ class Helpers {
     return `0 ${constants.PRIMARY_CANDIDATE_OFFSETS[name] * 100 / 46}%`;
   };
 
-  getCandidateImg = (candidate) => {
+  getCandidateImg = (candidate, year) => {
     if(candidate == null){
-      return "img/candidates/2018/default.jpg";
+      return "/img/candidates/default.jpg";
     }
 
-    return `img/candidates/2020/${candidate.name.replace(/\s+/g, '')}.jpg`
+    return `/img/candidates/${year}/${candidate.name.replace(/\s+/g, '')}.jpg`
   };
 }
 
