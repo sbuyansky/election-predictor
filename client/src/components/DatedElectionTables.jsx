@@ -24,7 +24,7 @@ const DatedElectionTables = (props) => {
 
   let electionsByDate = SortElectionsByDate(elections);
   let dates = Object.keys(electionsByDate).sort((a, b) => {return new Date(a) - new Date(b)});
-  let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: "UTC" };
 
   return dates.map((date) => (
     <div>
@@ -39,7 +39,6 @@ const DatedElectionTables = (props) => {
     </div>
   ))
 };
-
 
 ElectionTable.propTypes = {
   elections: PropTypes.any.isRequired,
