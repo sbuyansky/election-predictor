@@ -8,30 +8,30 @@ const NavBar = ({ handleSave, handleLoad, handlePredictionIdChange, predictionId
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <a className="navbar-brand" href="/">Election Predictor</a>
 
-    <div className=" navbar-collapse" id="navbarSupportedContent">
+    <div className="navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
         <li className={electionType === constants.ELECTION_TYPE_PRIMARY ? "nav-item active" : "nav-item"}>
-          <Link className="nav-link" to="/primary">Primary</Link>
+          <Link className="nav-link" to="/2020/primary">Primary</Link>
         </li>
         <li className={electionType === constants.ELECTION_TYPE_SENATE ? "nav-item active" : "nav-item"}>
-          <Link className="nav-link" to="/senate">Senate</Link>
+          <Link className="nav-link" to="/2018/senate">Senate</Link>
         </li>
         <li className={electionType === constants.ELECTION_TYPE_HOUSE ? "nav-item active" : "nav-item"}>
-          <Link className="nav-link" to="/house">House</Link>
+          <Link className="nav-link" to="/2018/house">House</Link>
         </li>
         <li className={electionType === constants.ELECTION_TYPE_GOVERNOR ? "nav-item active" : "nav-item"}>
-          <Link className="nav-link" to="/governor">Governor</Link>
+          <Link className="nav-link" to="/2018/governor">Governor</Link>
         </li>
         <li className={electionType === constants.ELECTION_TYPE_RESULTS ? "nav-item active" : "nav-item"}>
-          <Link className="nav-link" to="/results">Results</Link>
+          <Link className="nav-link" to="/2018/results">Results</Link>
         </li>
       </ul>
       { electionType !== constants.ELECTION_TYPE_RESULTS && 
-        (<React.Fragment>
+        (<>
           <button className="btn btn-light" onClick={() => handleLoad()} type="button" disabled={predictionId === ''} style={{marginRight: '10px'}}>Load</button>
           <input maxlength="20" className="form-control mr-sm-2" type="text" placeholder="Enter a Prediction ID" aria-label="PredictionID" value={predictionId} onChange={(e) => handlePredictionIdChange(e)} style={{width: '200px'}}/>
           <button className="btn btn-light" onClick={() => handleSave()} type="button" disabled={predictionId === ''}>Save</button>
-        </React.Fragment>)
+        </>)
       }
     </div>
     <ToastContainer />
