@@ -7,7 +7,6 @@ import StateApp from './components/StateApp';
 import HouseApp from './components/HouseApp';
 import ResultsApp from './components/ResultsApp';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.css';
 import configureStore from './store/configureStore';
 import * as constants from './constants';
 
@@ -18,6 +17,12 @@ import housePartisanIndex from './data/2018/house_partisan_index.json';
 import electionsPrimary from './data/2020/primary_elections.json';
 
 import './styles/index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
+// required for bootstrap
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 const store = configureStore(
   {
@@ -44,23 +49,23 @@ ReactDOM.render(
     <Router>
       <div>
         <Route
-          path="/senate"
+          path="/:year/senate"
           render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_SENATE} />}
         />
         <Route
-          path="/house"
+          path="/:year/house"
           render={props => <HouseApp {...props} electionType={constants.ELECTION_TYPE_HOUSE} />}
         />
         <Route
-          path="/governor"
+          path="/:year/governor"
           render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_GOVERNOR} />}
         />
         <Route
-          path="/primary"
+          path="/:year/primary"
           render={props => <StateApp {...props} electionType={constants.ELECTION_TYPE_PRIMARY} />}
         />
         <Route
-          path="/results"
+          path="/:year/results"
           exact
           render={props => <ResultsApp {...props} electionType={constants.ELECTION_TYPE_RESULTS} />}
         />

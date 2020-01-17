@@ -28,7 +28,11 @@ class Map extends Component {
   getStyleState(stateName, isMarker) {
     const { elections, predictions, electionType } = this.props;
     const election = elections[stateName];
-    const prediction = predictions[stateName];
+    let prediction;
+
+    if(predictions != null ){
+      prediction = predictions[stateName]
+    }
 
     if (election != null) {
       let stateFill = "rgb(33, 37, 41)";
@@ -123,8 +127,13 @@ class Map extends Component {
   }
 
   render() {
-    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex, electionType, predictions } = this.props;
+    const { elections, handleStateSelect, geography, numDemSeats, partisanIndex, electionType, year } = this.props;
+    let {predictions} = this.props;
     let markers = null;
+
+    if(!predictions){
+      predictions = {};
+    }
 
     if(electionType === constants.ELECTION_TYPE_SENATE){
       markers = [
@@ -222,17 +231,17 @@ class Map extends Component {
               Object.keys(constants.STATE_VIEWBOXES).map((state) =>
               (
                 <pattern id={`${state}Pattern`}  width="1" height="1">
-                  <image preserveAspectRatio="xMidYMid slice" xlinkHref={`${Helpers.getCandidateImg(predictions[state])}`} x="0" y="0" width={constants.STATE_VIEWBOXES[state].width} height={constants.STATE_VIEWBOXES[state].height}/>
+                  <image preserveAspectRatio="xMidYMid slice" xlinkHref={`${Helpers.getCandidateImg(predictions[state], year)}`} x="0" y="0" width={constants.STATE_VIEWBOXES[state].width} height={constants.STATE_VIEWBOXES[state].height}/>
                 </pattern>
               )
               )
             }
             {
               /* Marker Patterns */
-              markers.map((marker) =>
+              markers && markers.map((marker) =>
                 (
                   <pattern id={`${marker.name}PatternMarker`}  width="1" height="1">
-                    <image preserveAspectRatio="xMidYMid slice" xlinkHref={`${Helpers.getCandidateImg(predictions[marker.name])}`} x="0" y="0" width="30" height="30"/>
+                    <image preserveAspectRatio="xMidYMid slice" xlinkHref={`${Helpers.getCandidateImg(predictions[marker.name], year)}`} x="0" y="0" width="30" height="30"/>
                   </pattern>
                 )
               )

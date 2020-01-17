@@ -86,6 +86,7 @@ class App extends Component {
 
     const elections = data[electionType];
     const predictions = predictionsAll[electionType];
+    const year = this.props.match.params.year;
 
     return (elections != null
       ? (
@@ -99,11 +100,12 @@ class App extends Component {
           />
           <ElectionHeader
             selectedState={elections[selectedStateName]}
-            selectedStatePrediction={predictions[selectedStateName]}
+            selectedStatePrediction={predictions != null && predictions[selectedStateName] ? predictions[selectedStateName] : {}}
             selectedStateName={selectedStateName}
             handleWinnerSelect={this.handleWinnerSelect}
             selectedCandidate={selectedCandidate}
             electionType={electionType}
+            year={year}
           />
           <Map
             geography={geographyPaths}
@@ -111,9 +113,10 @@ class App extends Component {
             predictions={predictions}
             handleStateSelect={this.handleStateSelect}
             electionType={electionType}
+            year={year}
           />
           {electionType !== constants.ELECTION_TYPE_PRIMARY && 
-            <ElectionTable
+          <ElectionTable
             elections={elections}
             predictions={predictions}
             handleWinnerSelect={this.handleWinnerSelect}
