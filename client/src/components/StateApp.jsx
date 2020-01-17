@@ -9,6 +9,7 @@ import ElectionHeader from './ElectionHeader';
 import ElectionTable from './ElectionTable';
 import DatedElectionTables from './DatedElectionTables';
 import NavBar from './NavBar';
+import Helpers from '../Helpers';
 import * as predictionActions from '../actions/predictionActions';
 
 import '../styles/App.css';
@@ -31,6 +32,7 @@ class App extends Component {
 
   componentDidMount() {
     const { selectedStateName } = this.state;
+    const year = this.props.match.params.year;
 
     const geographyPaths = feature(
       geographyObject,
@@ -38,6 +40,12 @@ class App extends Component {
     ).features;
     this.setState({ geographyPaths });
     this.handleStateSelect(selectedStateName);
+
+    // Preload images
+    Object.keys(constants.PRIMARY_CANDIDATE_OFFSETS).forEach((candidate) => {
+      const img = new Image();
+      img.src = Helpers.getCandidateImg({name: candidate}, year);
+    });
   }
 
   handleStateSelect(stateName) {
