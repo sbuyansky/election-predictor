@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "octicons-react": "^0.14.0",
     "popper.js": "^1.16.0",
     "prop-types": "^15.6.2",
