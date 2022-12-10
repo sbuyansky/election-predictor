@@ -10,7 +10,7 @@
   "dependencies": {
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "lodash": "^4.17.11",
     "morgan": "^1.9.1",
     "pg": "^7.5.0",
